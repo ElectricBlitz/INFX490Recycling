@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
+import { RewardsComponent } from './rewards';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { RegisterComponent } from './register';
         AppComponent,
         HomeComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        RewardsComponent
     ],
     bootstrap: [AppComponent]
 })
