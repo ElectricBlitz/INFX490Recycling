@@ -7,6 +7,8 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { RewardsComponent } from './rewards';
+import { QuizComponent } from './quiz';
+import { MapComponent } from './map';
 
 @NgModule({
     imports: [
@@ -18,7 +20,9 @@ import { RewardsComponent } from './rewards';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        RewardsComponent
+        RewardsComponent,
+        QuizComponent,
+        MapComponent
     ],
     bootstrap: [AppComponent]
 })
