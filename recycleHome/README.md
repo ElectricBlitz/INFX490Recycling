@@ -2,9 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 
+## Install Dependencies
+
+Run `npm install`. This will install all dependencies needed for building and running the application.
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -25,3 +29,18 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# Building/Running Application
+
+## Build Front End
+`cd <PROJECT_ROOT>/recycleHome/`
+`ng build`
+`ng serve`
+
+## Build Back End
+*IN A SEPARATE TERMINAL*
+`cd <PROJECT_ROOT>/recycle_home/src/main/java/com/example/recycle_home/`
+`mvn spring-boot:run`
+
+## Verify Build
+In the browser, navigate to http://localhost:8080
