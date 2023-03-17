@@ -1,4 +1,10 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
-@Component({templateUrl: 'quiz.component.html'})
-export class QuizComponent{}
+@Component({
+  selector: 'app-quiz',
+  templateUrl: './quiz.component.html',
+  styleUrls: ['./quiz.component.scss']
+})
+export class QuizComponent {
+
+}

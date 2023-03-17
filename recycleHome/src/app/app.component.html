@@ -2,61 +2,26 @@
 <nav class="navbar navbar-expand navbar-dark" style="background-color: forestgreen; font-size:xx-large;">
   <div class="navbar-nav">
       &nbsp;
-      <a class="nav-item nav-link" routerLink="/">Home</a>
+      <a class="nav-item nav-link" routerLink="">Home</a>
       &nbsp;
       &nbsp;
-      <a class="nav-item nav-link" routerLink="/login">Login</a>
+      <a class="nav-item nav-link" routerLink="login">Login</a>
       &nbsp;
       &nbsp;
-      <a class="nav-item nav-link" routerLink="/register">Register</a>
+      <a class="nav-item nav-link" routerLink="register">Register</a>
       &nbsp;
       &nbsp;
-      <a class="nav-item nav-link" routerLink="/rewards">Rewards</a>
+      <a class="nav-item nav-link" routerLink="rewards">Rewards</a>
       &nbsp;
       &nbsp;
-      <a class="nav-item nav-link" routerLink="/quiz">Quiz</a>
+      <a class="nav-item nav-link" routerLink="quiz">Quiz</a>
       &nbsp;
       &nbsp;
-      <a class="nav-item nav-link" routerLink="/map">Map</a>
+      <a class="nav-item nav-link" routerLink="map">Map</a>
       &nbsp;
       &nbsp;
-      <a class="nav-item nav-link" routerLink="/admin">Admin</a>
+      <a class="nav-item nav-link" routerLink="admin">Admin</a>
   </div>
 </nav>
 
-<!-- main content container -->
-<div class="jumbotron">
-  <div class="container">
-      <div class="row">
-          <div class="col-sm-8 offset-sm-2">
-              <router-outlet></router-outlet>
-          </div>
-      </div>
-  </div>
-</div>
-
-<style>
-  a:link {
-  color: rgb(255, 255, 255);
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:visited {
-  color: rgb(255, 255, 255);
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:hover {
-  color: rgb(255, 255, 255);
-  background-color: transparent;
-  text-decoration: underline;
-}
-
-a:active {
-  color: rgb(255, 255, 255);
-  background-color: transparent;
-  text-decoration: underline;
-}
-</style>
+<router-outlet></router-outlet>

@@ -1,31 +1,32 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { appRoutingModule } from './app.routing';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home';
-import { LoginComponent } from './login';
-import { RegisterComponent } from './register';
-import { RewardsComponent } from './rewards';
-import { QuizComponent } from './quiz';
-import { MapComponent } from './map';
-import { AdminComponent } from './admin';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { RewardsComponent } from './rewards/rewards.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { MapComponent } from './map/map.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
-    imports: [
-      BrowserModule,
-      appRoutingModule
-    ],
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        LoginComponent,
-        RegisterComponent,
-        RewardsComponent,
-        QuizComponent,
-        MapComponent,
-        AdminComponent
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    RewardsComponent,
+    QuizComponent,
+    MapComponent,
+    AdminComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule { };
+export class AppModule { }
