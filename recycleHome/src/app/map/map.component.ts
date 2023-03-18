@@ -19,22 +19,14 @@ export class MapComponent {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       })
     ],
-    zoom: 16,
-    center: { lat: 28.626137, lng: 79.821603 }
+    zoom: 13,
+    center: { lat: 30.2029, lng: -92.0418 }
   }
 
   initMarkers() {
     const initialMarkers = [
       {
-        position: { lat: 28.625485, lng: 79.821091 },
-        draggable: true
-      },
-      {
-        position: { lat: 28.625293, lng: 79.817926 },
-        draggable: false
-      },
-      {
-        position: { lat: 28.625182, lng: 79.81464 },
+        position: { lat: 30.208389, lng: -92.033556 },
         draggable: true
       }
     ];
