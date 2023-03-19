@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path=../recycle_home/src/main/resources/static --base-href /.",
+    "build": "ng build --output-path=../backend/src/main/resources/static --base-href /.",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
