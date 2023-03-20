@@ -1,4 +1,10 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
-@Component({templateUrl: 'rewards.component.html'})
-export class RewardsComponent{}
+@Component({
+  selector: 'app-rewards',
+  templateUrl: './rewards.component.html',
+  styleUrls: ['./rewards.component.scss']
+})
+export class RewardsComponent {
+
+}
