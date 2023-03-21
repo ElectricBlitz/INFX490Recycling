@@ -16,4 +16,10 @@ export class RewardsComponent implements OnInit {
     }
 
     userPoints:number = 33576732;
+
+    rewardsList:Reward[] = [new Reward(0,30,"Coasters","Coasters made with recycled materials with our logo.")];
+
+    claimReward(){
+      
+    }
 }

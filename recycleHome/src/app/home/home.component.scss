@@ -1,18 +1,43 @@
 h1{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
 }
 
 h2.sub-title{
     font-size: xx-large;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
 }
 
 p.text{
     size: 2em;
-
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 30px;
 }
 
 div.page{
-    background-color: rgb(96, 233, 37);
+    background-color: rgb(81, 146, 53);
+}
+
+button.commentSubmit{
+    border-radius: 25px;
+    text-align: center;
+}
+
+p.comments{
+    text-align: center;
+}
+
+div.commentForm{
+    text-align: center;
+}
+
+div.commentList{
+    text-align: center;
+}
+
+p.commentHeader{
+    text-align: center;
+    font-size: large;
+    font: bold;
 }
