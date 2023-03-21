@@ -37,6 +37,7 @@
     </div>
     
     <div>
+        <p>Leave a comment</p>
         <form id="comment-form">
     
             <input type="text" id="name" name="name"> <br> <br>
@@ -47,6 +48,7 @@
         </form>
     </div>
     
+    <p>Comments</p>
     <div *ngFor="let comment of comments">
         <h3>
             {{comment.name}} <br>
