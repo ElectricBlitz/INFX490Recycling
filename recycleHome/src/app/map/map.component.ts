@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import * as Leaflet from 'leaflet'
 
@@ -10,7 +10,8 @@ Leaflet.Icon.Default.imagePath = 'assets/';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent {
+
+export class MapComponent{
   map!: Leaflet.Map;
   markers: Leaflet.Marker[] = [];
   options = {
