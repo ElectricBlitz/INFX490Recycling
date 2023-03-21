@@ -23,7 +23,11 @@ export class MapComponent{
     zoom: 13,
     center: { lat: 30.2029, lng: -92.0418 }
   }
-
+  /**
+   * This will need to be modified for when we want to retreive
+   * data from the database. Will need some form of REST call
+   * to the backend which will reach in and return a list of locations
+   */
   initMarkers() {
     const initialMarkers = [
       {
