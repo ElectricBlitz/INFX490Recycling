@@ -1,7 +1,10 @@
-<h1>Map Page</h1>
-<div class="map-container"
+<div class="mapPage">
+  <h1>Map Page</h1>
+  <div class="map-container"
   leaflet
   [leafletOptions]="options"
   (leafletMapReady)="onMapReady($event)"
   (leafletClick)="mapClicked($event)">
+  </div>
 </div>
+

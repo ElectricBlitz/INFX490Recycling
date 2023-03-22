@@ -15,11 +15,11 @@ export class RewardsComponent implements OnInit {
         
     }
 
-    userPoints:number = 33576732;
+    userPoints:number = 42;
 
-    rewardsList:Reward[] = [new Reward(0,30,"Coasters","Coasters made with recycled materials with our logo.")];
+    rewardsList:Reward[] = [new Reward(0,30,"Coasters","Coasters with our logo, made with recycled materials.")];
 
     claimReward(){
-      
+
     }
 }

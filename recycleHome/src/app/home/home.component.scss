@@ -1,6 +1,11 @@
+div.homePage{
+    background-color: rgb(81, 146, 53);
+}
+
 h1{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
+    margin: 0px;
 }
 
 h2.sub-title{
@@ -15,24 +20,12 @@ p.text{
     margin: 30px;
 }
 
-div.page{
-    background-color: rgb(81, 146, 53);
-}
-
-button.commentSubmit{
-    border-radius: 25px;
-    text-align: center;
-}
-
-p.comments{
-    text-align: center;
-}
-
 div.commentForm{
     text-align: center;
 }
 
-div.commentList{
+button.commentSubmit{
+    border-radius: 25px;
     text-align: center;
 }
 
@@ -41,3 +34,13 @@ p.commentHeader{
     font-size: large;
     font: bold;
 }
+
+div.commentList{
+    text-align: center;
+}
+
+p.comments{
+    text-align: center;
+    margin: 0px;
+}
+
