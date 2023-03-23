@@ -3,7 +3,7 @@ CREATE TABLE locations (
     name    VARCHAR(75) NOT NULL,
     address VARCHAR(128) NOT NULL,
     phoneNumber VARCHAR(12) NOT NULL,
-    latitude DECIMAL,
-    longitude DECIMAL,
+    latitude DOUBLE,
+    longitude DOUBLE,
     PRIMARY KEY (id)
 );
