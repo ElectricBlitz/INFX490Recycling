@@ -2,6 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import * as Leaflet from 'leaflet'
 
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class LocationService {
+  private apiURL = 'http://localhost:8080/api/locations';
+
+  constructor(private http: HttpClient){}
+
+  getLocations(){
+    return this.http.get<Location>(this.apiURL)
+  }
+}
+
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 
@@ -12,6 +26,18 @@ Leaflet.Icon.Default.imagePath = 'assets/';
 })
 
 export class MapComponent{
+//  implement OnInit when code is fixed
+  // currently doesn't see locations from the injectable
+  // locations: Location[];
+
+  // constructor(private locationService: LocationService) {}
+
+  // ngOnInit() {
+  //     this.locationService.getLocations().subscribe(
+  //       locations => this.locations = locations,
+  //       error => console.error(error)
+  //     );
+  // }
   map!: Leaflet.Map;
   markers: Leaflet.Marker[] = [];
   options = {
