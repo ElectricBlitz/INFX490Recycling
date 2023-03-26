@@ -58,20 +58,20 @@ export class MapComponent{
     const initialMarkers = [
       {
         position: { lat: 30.208389, lng: -92.033556 },
-        draggable: true
+        name: "TestPoint"
       }
     ];
     for (let index = 0; index < initialMarkers.length; index++) {
       const data = initialMarkers[index];
       const marker = this.generateMarker(data, index);
-      marker.addTo(this.map).bindPopup(`<b>${data.position.lat},  ${data.position.lng}</b>`);
+      marker.addTo(this.map).bindPopup(`<b>${data.name} <ul><li>Testing</li></b>`);
       this.map.panTo(data.position);
       this.markers.push(marker)
     }
   }
 
   generateMarker(data: any, index: number) {
-    return Leaflet.marker(data.position, { draggable: data.draggable })
+    return Leaflet.marker(data.position, { draggable: false })
       .on('click', (event) => this.markerClicked(event, index))
       .on('dragend', (event) => this.markerDragEnd(event, index));
   }
