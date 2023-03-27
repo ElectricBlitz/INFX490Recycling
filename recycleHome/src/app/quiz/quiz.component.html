@@ -1,9 +1,14 @@
 <div class="quizPage">
-    <h1>Quiz Page</h1>
+    <!--<h1>Quiz Page</h1>-->
 
     <div class="questionDisplay">
-        {{ questions[currentQuestion].text }} <br>
+
+        <br>
+
+        <h1>{{ questions[currentQuestion].text }}</h1> <br>
+
         <div class="answerList">
+
             <button (click)="checkCorrect(questions[currentQuestion].answer1,questions[currentQuestion].cAnswer,1)" 
             [ngClass]="{'unknown': ans1 == 1, 'incorrect': ans1 == 2, 'correct': ans1 == 3}">
             {{ questions[currentQuestion].answer1 }}</button>
@@ -20,9 +25,12 @@
             <button (click)="checkCorrect(questions[currentQuestion].answer4,questions[currentQuestion].cAnswer,4)" 
             [ngClass]="{'unknown': ans4 == 1, 'incorrect': ans4 == 2, 'correct': ans4 == 3}">
             {{ questions[currentQuestion].answer4 }}</button>
+
         </div>
+
     </div>
 
     <button class="continueButton" (click)="nextQuestion(currentQuestion)">Continue</button>
+    
 </div>
 
