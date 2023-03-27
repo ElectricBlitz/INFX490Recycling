@@ -1,9 +1,14 @@
 <div class="quizPage">
     <h1>Quiz Page</h1>
 
-    <div>
-        <div class="answerDisplay" *ngFor="let answer of answers">
-        
+    <div class="questionDisplay">
+        {{ questions[currentQuestion].text }} <br>
+        <div class="answerList">
+            <button>{{ questions[currentQuestion].answer1 }}</button>
+            <button>{{ questions[currentQuestion].answer2 }}</button>
+            <br>
+            <button>{{ questions[currentQuestion].answer3 }}</button>
+            <button>{{ questions[currentQuestion].answer4 }}</button>
         </div>
     </div>
 </div>
