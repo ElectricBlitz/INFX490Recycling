@@ -4,12 +4,25 @@
     <div class="questionDisplay">
         {{ questions[currentQuestion].text }} <br>
         <div class="answerList">
-            <button>{{ questions[currentQuestion].answer1 }}</button>
-            <button>{{ questions[currentQuestion].answer2 }}</button>
+            <button (click)="checkCorrect(questions[currentQuestion].answer1,questions[currentQuestion].cAnswer,1)" 
+            [ngClass]="{'unknown': ans1 == 1, 'incorrect': ans1 == 2, 'correct': ans1 == 3}">
+            {{ questions[currentQuestion].answer1 }}</button>
+
+            <button (click)="checkCorrect(questions[currentQuestion].answer2,questions[currentQuestion].cAnswer,2)"
+            [ngClass]="{'unknown': ans2 == 1, 'incorrect': ans2 == 2, 'correct': ans2 == 3}">
+            {{ questions[currentQuestion].answer2 }}</button>
             <br>
-            <button>{{ questions[currentQuestion].answer3 }}</button>
-            <button>{{ questions[currentQuestion].answer4 }}</button>
+
+            <button (click)="checkCorrect(questions[currentQuestion].answer3,questions[currentQuestion].cAnswer,3)" 
+            [ngClass]="{'unknown': ans3 == 1, 'incorrect': ans3 == 2, 'correct': ans3 == 3}">
+            {{ questions[currentQuestion].answer3 }}</button>
+
+            <button (click)="checkCorrect(questions[currentQuestion].answer4,questions[currentQuestion].cAnswer,4)" 
+            [ngClass]="{'unknown': ans4 == 1, 'incorrect': ans4 == 2, 'correct': ans4 == 3}">
+            {{ questions[currentQuestion].answer4 }}</button>
         </div>
     </div>
+
+    <button class="continueButton" (click)="nextQuestion(currentQuestion)">Continue</button>
 </div>
 

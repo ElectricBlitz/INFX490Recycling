@@ -32,3 +32,24 @@ button{
     font-size: x-large;
     font-family: Tahoma, 'Segoe UI',  Geneva, Verdana, sans-serif;
 }
+
+button.unknown{
+    background-color: black;
+}
+
+button.incorrect{
+    background-color: rgb(113, 0, 0);
+}
+
+button.correct{
+    background-color: rgb(6, 86, 0);
+}
+
+button.continueButton{
+  margin: 0;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
