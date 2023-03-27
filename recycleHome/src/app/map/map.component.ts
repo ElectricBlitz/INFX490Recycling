@@ -64,7 +64,7 @@ export class MapComponent{
     for (let index = 0; index < initialMarkers.length; index++) {
       const data = initialMarkers[index];
       const marker = this.generateMarker(data, index);
-      marker.addTo(this.map).bindPopup(`<b>${data.name} <ul><li>Testing</li></b>`);
+      marker.addTo(this.map).bindPopup(`<b>${data.name} <ul><li>Testing</li> <a href="http://www.google.com/maps/place/${data.position.lat},${data.position.lng}">Google Maps</a></b>`);
       this.map.panTo(data.position);
       this.markers.push(marker)
     }
