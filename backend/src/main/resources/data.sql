@@ -1,4 +1,4 @@
-INSERT INTO locations (name, address, phoneNumber, latitude, longitude) VALUES 
+INSERT INTO location (name, address, phonenumber, latitude, longitude) VALUES 
 ('Home Depot', '1700 NE Evangeline Throughway, Lafayette, LA 70501', '337-289-1394', 30.245790, -92.010500),
 ('Louisiana Scrap Metal Recycling', '2200 Cameron Street, Lafayette, LA 70506', '337-233-0112', 30.233400, -92.042080),
 ('Target', '3225 Louisiana Avenue, Lafayette, LA 70501', '337-769-7515', 30.265650, -91.996590),
