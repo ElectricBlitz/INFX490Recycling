@@ -72,7 +72,6 @@ export class MapComponent{
   }
 
   generateMarker(data: any, index: number) {
-    // data.position no longer exists, research how to put latitude/longitude
     return Leaflet.marker(data, { draggable: false })
       .on('click', (event) => this.markerClicked(event, index))
       .on('dragend', (event) => this.markerDragEnd(event, index));

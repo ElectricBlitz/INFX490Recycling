@@ -1,15 +1,28 @@
+import javax.persistence.*;
+
 @Entity
-@Table(name = "locations")
 public class Location {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "phoneNumber")
     private String phoneNumber;
+
+    @Column(name = "latitude")
     private float latitude;
+
+    @Column(name = "longitude")
     private float longitude;
+
+
 
     public Location() {
         // Required for Spring Data JPA
