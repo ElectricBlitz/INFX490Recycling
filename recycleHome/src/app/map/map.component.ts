@@ -46,7 +46,7 @@ export class MapComponent{
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       })
     ],
-    zoom: 13,
+    zoom: 12,
     center: { lat: 30.2029, lng: -92.0418 }
   }
   /**
@@ -57,21 +57,23 @@ export class MapComponent{
   initMarkers() {
     const initialMarkers = [
       {
-        position: { lat: 30.208389, lng: -92.033556 },
-        name: "TestPoint"
+        latitude: 30.245790, 
+        longitude: -92.010500,
+        name: "Home Depot",
+        phone: "337-289-1394"
       }
     ];
     for (let index = 0; index < initialMarkers.length; index++) {
       const data = initialMarkers[index];
-      const marker = this.generateMarker(data, index);
-      marker.addTo(this.map).bindPopup(`<b>${data.name} <ul><li>Testing</li> <a href="http://www.google.com/maps/place/${data.position.lat},${data.position.lng}">Google Maps</a></b>`);
-      this.map.panTo(data.position);
+      const marker = this.generateMarker([data.latitude, data.longitude], index);
+      marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phone}</p> <ul><li>Testing</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
       this.markers.push(marker)
     }
   }
 
   generateMarker(data: any, index: number) {
-    return Leaflet.marker(data.position, { draggable: false })
+    // data.position no longer exists, research how to put latitude/longitude
+    return Leaflet.marker(data, { draggable: false })
       .on('click', (event) => this.markerClicked(event, index))
       .on('dragend', (event) => this.markerDragEnd(event, index));
   }
