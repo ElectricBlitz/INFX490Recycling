@@ -21,8 +21,10 @@ export class HomeComponent implements OnInit {
     var name = (<HTMLInputElement>document.getElementById("name")).value;
     var body = (<HTMLInputElement>document.getElementById("body")).value;
     var temp = new Comment(this.currentID, name, body)
-    this.addComment(temp);
-    this.currentID = this.currentID + 1;
+    if(name != "" && body != ""){
+      this.addComment(temp);
+      this.currentID = this.currentID + 1;
+    }
   }
 
   addComment(newComment:Comment){

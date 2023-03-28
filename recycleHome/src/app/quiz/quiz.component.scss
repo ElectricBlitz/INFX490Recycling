@@ -1,0 +1,55 @@
+div.quizPage{
+    background-color: rgb(189, 207, 187);
+    height: 100vh;
+    width: 100vw;
+    font-size: xx-large;
+}
+
+h1{
+    margin: 0px;
+}
+
+div.questionDisplay{
+    text-align: center;
+}
+
+div.answerList{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+button{
+    margin: 30px;
+    color: rgb(255, 255, 255);
+    background-color: black;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: x-large;
+    font-family: Tahoma, 'Segoe UI',  Geneva, Verdana, sans-serif;
+}
+
+button.unknown{
+    background-color: rgb(0, 0, 0);
+}
+
+button.incorrect{
+    background-color: rgb(113, 6, 6);
+}
+
+button.correct{
+    background-color: rgb(6, 92, 15);
+}
+
+button.continueButton{
+  margin: 0;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

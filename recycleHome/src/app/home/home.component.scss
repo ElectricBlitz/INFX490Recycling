@@ -1,7 +1,46 @@
+div.homePage{
+    background-color: rgb(189, 207, 187);
+}
+
+h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0px;
+}
+
 h2.sub-title{
     font-size: xx-large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
 }
 
 p.text{
     size: 2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 30px;
 }
+
+div.commentForm{
+    text-align: center;
+}
+
+button.commentSubmit{
+    border-radius: 25px;
+    text-align: center;
+}
+
+p.commentHeader{
+    text-align: center;
+    font-size: large;
+    font: bold;
+}
+
+div.commentList{
+    text-align: center;
+}
+
+p.comments{
+    text-align: center;
+    margin: 0px;
+}
+
