@@ -5,7 +5,7 @@ public class LocationController {
     @Autowired
     private LocationRepository locationRepository;
 
-    @GetMapping("")
+    @GetMapping("/locations")
     public List<Location> getAllLocations() {
         return locationRepository.findAll();
     }
