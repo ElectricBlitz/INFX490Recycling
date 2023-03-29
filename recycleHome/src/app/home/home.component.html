@@ -1,5 +1,6 @@
-<div class="page">
+<div class="homePage">
     <div>
+        <br>
         <h1>The Lafayette Recycling Initiative</h1>
     
         <br>
@@ -36,21 +37,24 @@
         </p>
     </div>
     
-    <div>
+    <div class="commentForm">
+        <p>Leave a comment</p>
         <form id="comment-form">
     
-            <input type="text" id="name" name="name"> <br> <br>
+            <input type="text" id="name" name="name">Name <br> <br>
     
-            <input type="text" id="body" name="body"> <br> <br>
+            <input type="text" id="body" name="body">Body <br> <br>
     
-            <button type="button" (click)="readAndComment()">Submit</button>
+            <button class="commentSubmit" type="button" (click)="readAndComment()">Submit</button>
         </form>
     </div>
     
-    <div *ngFor="let comment of comments">
-        <h3>
+    <p class="commentHeader">Comments</p>
+    <div class="commentList" *ngFor="let comment of comments">
+        <p class="comments">
             {{comment.name}} <br>
             {{comment.body}}
-        </h3>
+        </p>
+        <br>
     </div>    
 </div>

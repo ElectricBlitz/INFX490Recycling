@@ -1,1 +1,19 @@
-<h1>Rewards Page</h1>
+<div class="rewardsPage">
+    <h1>Rewards Page</h1>
+
+    <div class="userPoints">
+    {{ userPoints }}
+    </div>
+    <br>
+    <div *ngFor="let reward of rewardsList">
+        <p class="rewards">
+            {{reward.cost}} &nbsp; &nbsp; &nbsp;
+            {{reward.item}} &nbsp; &nbsp;
+            {{reward.description}} &nbsp; &nbsp;
+            <button type="button" (click)="claimReward()">
+                Claim this reward
+            </button>
+        </p>
+    </div> 
+</div>
+ 
