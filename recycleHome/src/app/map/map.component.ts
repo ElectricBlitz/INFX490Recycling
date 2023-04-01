@@ -4,17 +4,17 @@ import * as Leaflet from 'leaflet'
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+// import { LocationService } from './map.component.service';
+// @Injectable()
+// export class LocationService {
+//   private apiURL = 'http://localhost:8080/api/locations';
 
-@Injectable()
-export class LocationService {
-  private apiURL = 'http://localhost:8080/api/locations';
+//   constructor(private http: HttpClient){}
 
-  constructor(private http: HttpClient){}
-
-  getLocations(){
-    return this.http.get<Location>(this.apiURL)
-  }
-}
+//   getLocations(){
+//     return this.http.get<Location>(this.apiURL)
+//   }
+// }
 
 
 Leaflet.Icon.Default.imagePath = 'assets/';
