@@ -64,15 +64,17 @@ export class MapComponent{
       try {
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data[1]);
         return data;
       } catch (error) {
         return console.error(error);
       }
     }
     const url = "http://localhost:8080/api/locations";
-    const data = getData(url);
-    console.log(data);
+    const dataArray: any[] = [];
+    getData(url)
+    // this push causes it to be stored as 1 index
+    .then(datalogged => dataArray.push(datalogged));
+    console.log(dataArray)
     // getData(url)
     // .then(data => {const locations = []})
     // .catch(error => console.error(error));
@@ -85,8 +87,9 @@ export class MapComponent{
         phone: "337-289-1394"
       }
     ];
-    for (let index = 0; index < initialMarkers.length; index++) {
-      const data = initialMarkers[index];
+    for (let index = 0; index < dataArray[0].length; index++) {
+      const data = dataArray[0][index];
+      console.log(data)
       const marker = this.generateMarker([data.latitude, data.longitude], index);
       marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phone}</p> <ul><li>Testing</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
       this.markers.push(marker)
