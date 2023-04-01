@@ -87,8 +87,8 @@ export class MapComponent{
         phone: "337-289-1394"
       }
     ];
-    for (let index = 0; index < dataArray[0].length; index++) {
-      const data = dataArray[0][index];
+    for (let index = 0; index < dataArray.length; index++) {
+      const data = dataArray[index];
       console.log(data)
       const marker = this.generateMarker([data.latitude, data.longitude], index);
       marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phone}</p> <ul><li>Testing</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
