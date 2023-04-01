@@ -16,6 +16,15 @@ import { Injectable } from '@angular/core';
 //   }
 // }
 
+interface location {
+  id: number
+  name: string
+  longitude: number
+  latitude: number
+  address: string
+  phoneNumber: string
+}
+
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 
@@ -49,15 +58,28 @@ export class MapComponent{
     zoom: 12,
     center: { lat: 30.2029, lng: -92.0418 }
   }
-  /**
-   * This will need to be modified for when we want to retreive
-   * data from the database. Will need some form of REST call
-   * to the backend which will reach in and return a list of locations
-   */
   initMarkers() {
+
+    async function getData(url: string) {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data[1]);
+        return data;
+      } catch (error) {
+        return console.error(error);
+      }
+    }
+    const url = "http://localhost:8080/api/locations";
+    const data = getData(url);
+    console.log(data);
+    // getData(url)
+    // .then(data => {const locations = []})
+    // .catch(error => console.error(error));
+
     const initialMarkers = [
       {
-        latitude: 30.245790, 
+        latitude: 30.245790,
         longitude: -92.010500,
         name: "Home Depot",
         phone: "337-289-1394"
