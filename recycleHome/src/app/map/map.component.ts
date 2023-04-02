@@ -1,30 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import * as Leaflet from 'leaflet'
-
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-// import { LocationService } from './map.component.service';
-// @Injectable()
-// export class LocationService {
-//   private apiURL = 'http://localhost:8080/api/locations';
-
-//   constructor(private http: HttpClient){}
-
-//   getLocations(){
-//     return this.http.get<Location>(this.apiURL)
-//   }
-// }
-
-interface location {
-  id: number
-  name: string
-  longitude: number
-  latitude: number
-  address: string
-  phoneNumber: string
-}
-
+let dataArray: any[] = [];
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 
@@ -35,18 +12,6 @@ Leaflet.Icon.Default.imagePath = 'assets/';
 })
 
 export class MapComponent{
-//  implement OnInit when code is fixed
-  // currently doesn't see locations from the injectable
-  // locations: Location[];
-
-  // constructor(private locationService: LocationService) {}
-
-  // ngOnInit() {
-  //     this.locationService.getLocations().subscribe(
-  //       locations => this.locations = locations,
-  //       error => console.error(error)
-  //     );
-  // }
   map!: Leaflet.Map;
   markers: Leaflet.Marker[] = [];
   options = {
@@ -56,7 +21,7 @@ export class MapComponent{
       })
     ],
     zoom: 12,
-    center: { lat: 30.2029, lng: -92.0418 }
+    center: { lat: 30.227331548383027, lng: -92.02972412109376 }
   }
   initMarkers() {
 
@@ -69,31 +34,22 @@ export class MapComponent{
         return console.error(error);
       }
     }
+    //fetches data from the backend and creates a map based on it
     const url = "http://localhost:8080/api/locations";
-    const dataArray: any[] = [];
     getData(url)
-    // this push causes it to be stored as 1 index
-    .then(datalogged => dataArray.push(datalogged));
-    console.log(dataArray)
-    // getData(url)
-    // .then(data => {const locations = []})
-    // .catch(error => console.error(error));
-
-    const initialMarkers = [
-      {
-        latitude: 30.245790,
-        longitude: -92.010500,
-        name: "Home Depot",
-        phone: "337-289-1394"
+    .then(
+      dataLogged => {
+        for(let index=0; index < dataLogged.length; index++){
+          dataArray.push(dataLogged[index]);
+        }
+        for (let index = 0; index < dataArray.length; index++) {
+          const data = dataArray[index];
+          const marker = this.generateMarker([data.latitude, data.longitude], index);
+          marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>Material</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
+          this.markers.push(marker)
+        }
       }
-    ];
-    for (let index = 0; index < dataArray.length; index++) {
-      const data = dataArray[index];
-      console.log(data)
-      const marker = this.generateMarker([data.latitude, data.longitude], index);
-      marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phone}</p> <ul><li>Testing</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
-      this.markers.push(marker)
-    }
+    );
   }
 
   generateMarker(data: any, index: number) {
