@@ -1,4 +1,4 @@
-package com.example.backend.User;
+package com.example.backend.Account;
 
 import java.util.List;
 
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserController {
+public class AccountController {
     @Autowired
-    private UserRepository userRepository;
+    private AccountRepository userRepository;
 
-    @GetMapping("api/User")
-    public List<User> getAllUsers() {
+    @GetMapping("api/Account")
+    public List<Account> getAllAccounts() {
         return userRepository.findAll();
     }
 }

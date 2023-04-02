@@ -37,3 +37,9 @@ INSERT INTO location (name, address, phonenumber, latitude, longitude) VALUES
 ('Albertsons', '2678 Johnston Street, Lafayette, LA 70503', '337-233-2940', 30.2087105, -92.0386436),
 ('Albertsons', '2863 Ambassador Caffery Pkwy, Lafayette, LA 70506', '337-406-8887', 30.1980949, -92.0738603),
 ('Albertsons', '4400 Ambassador Caffery Pkwy, Lafayete, LA 70506', '337-984-4587', 30.156803, -92.0512228);
+INSERT INTO Account (firstName, lastName, username, password, rewardsPoints) VALUES 
+('Dylan','Bertrand','admin','password',100),
+('Phillip','Guidry','admin2','password2',100),
+('Ryne','Guercio','admin3','password3',100),
+('Lauren','Coleman','admin4','password4',100),
+('Gabe','Trahan','admin5','password5',100);
