@@ -4,7 +4,12 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #03780e;
-    width: 100vw;
+  }
+
+  img{
+    display: block;
+    height: 60px;
+    width: 60px;
   }
   
   li {

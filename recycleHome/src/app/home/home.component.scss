@@ -2,36 +2,59 @@ div.homePage{
     background-color: rgb(189, 207, 187);
 }
 
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    width: 400px;
+}
+
 h1{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
+    font-size: 80px;
     margin: 0px;
 }
 
 h2.sub-title{
-    font-size: xx-large;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 60px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
 }
 
 p.text{
+    font-size: 30px;
     size: 2em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 30px;
+}
+
+p.formHeader{
+    font-size: 30px;
 }
 
 div.commentForm{
     text-align: center;
 }
 
+input.formInput{
+    height: 50px;
+    width: 800px;
+    font-size: 30px;
+}
+
 button.commentSubmit{
+    height: 50px;
+    width: 100px;
+    font-size: 22px;
     border-radius: 25px;
     text-align: center;
 }
 
 p.commentHeader{
     text-align: center;
-    font-size: large;
+    font-size: 30px;
     font: bold;
 }
 
@@ -40,6 +63,7 @@ div.commentList{
 }
 
 p.comments{
+    font-size: 25px;
     text-align: center;
     margin: 0px;
 }
