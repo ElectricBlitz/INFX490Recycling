@@ -1,10 +1,10 @@
-package com.example.INFX490Recycling;
+package com.example.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Infx490RecyclingApplicationTests {
+class BackendApplicationTests {
 
 	@Test
 	void contextLoads() {

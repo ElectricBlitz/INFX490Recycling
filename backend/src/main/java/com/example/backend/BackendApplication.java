@@ -1,13 +1,13 @@
-package com.example.INFX490Recycling;
+package com.example.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Infx490RecyclingApplication {
+public class BackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Infx490RecyclingApplication.class, args);
+		SpringApplication.run(BackendApplication.class, args);
 	}
 
 }

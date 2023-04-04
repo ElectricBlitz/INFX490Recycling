@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import * as Leaflet from 'leaflet'
-
+let dataArray: any[] = [];
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 
@@ -20,28 +20,40 @@ export class MapComponent{
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       })
     ],
-    zoom: 13,
-    center: { lat: 30.2029, lng: -92.0418 }
+    zoom: 12,
+    center: { lat: 30.227331548383027, lng: -92.02972412109376 }
   }
-
   initMarkers() {
-    const initialMarkers = [
-      {
-        position: { lat: 30.208389, lng: -92.033556 },
-        draggable: true
+
+    async function getData(url: string) {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        return console.error(error);
       }
-    ];
-    for (let index = 0; index < initialMarkers.length; index++) {
-      const data = initialMarkers[index];
-      const marker = this.generateMarker(data, index);
-      marker.addTo(this.map).bindPopup(`<b>${data.position.lat},  ${data.position.lng}</b>`);
-      this.map.panTo(data.position);
-      this.markers.push(marker)
     }
+    //fetches data from the backend and creates a map based on it
+    const url = "http://localhost:8080/api/locations";
+    getData(url)
+    .then(
+      dataLogged => {
+        for(let index=0; index < dataLogged.length; index++){
+          dataArray.push(dataLogged[index]);
+        }
+        for (let index = 0; index < dataArray.length; index++) {
+          const data = dataArray[index];
+          const marker = this.generateMarker([data.latitude, data.longitude], index);
+          marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>Material</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
+          this.markers.push(marker)
+        }
+      }
+    );
   }
 
   generateMarker(data: any, index: number) {
-    return Leaflet.marker(data.position, { draggable: data.draggable })
+    return Leaflet.marker(data, { draggable: false })
       .on('click', (event) => this.markerClicked(event, index))
       .on('dragend', (event) => this.markerDragEnd(event, index));
   }
