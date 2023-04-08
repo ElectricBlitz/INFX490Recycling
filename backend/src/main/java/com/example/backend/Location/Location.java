@@ -28,7 +28,8 @@ public class Location {
     @Column(name = "longitude")
     private float longitude;
 
-
+    @Column(name = "types")
+    private String types;
 
     public Location() {
         // Required for Spring Data JPA
