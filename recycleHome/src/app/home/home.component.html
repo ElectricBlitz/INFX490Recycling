@@ -1,7 +1,9 @@
 <div class="homePage">
     <div>
+        <img src="../../assets/recycling_logo.png" alt="">
+
         <br>
-        <h1>The Lafayette Recycling Initiative</h1>
+        <h1>Lafayette Recycling Initiative</h1>
     
         <br>
     
@@ -38,12 +40,12 @@
     </div>
     
     <div class="commentForm">
-        <p>Leave a comment</p>
+        <p class="formHeader">Leave a comment</p>
         <form id="comment-form">
     
-            <input type="text" id="name" name="name">Name <br> <br>
+            <input class="formInput" type="text" id="name" name="name">Name <br> <br>
     
-            <input type="text" id="body" name="body">Body <br> <br>
+            <input class="formInput" type="text" id="body" name="body">Body <br> <br>
     
             <button class="commentSubmit" type="button" (click)="readAndComment()">Submit</button>
         </form>
