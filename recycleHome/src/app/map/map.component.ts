@@ -29,6 +29,7 @@ export class MapComponent{
       try {
         const response = await fetch(url);
         const data = await response.json();
+        console.log(response)
         return data;
       } catch (error) {
         return console.error(error);
@@ -42,10 +43,11 @@ export class MapComponent{
         for(let index=0; index < dataLogged.length; index++){
           dataArray.push(dataLogged[index]);
         }
+        console.log(dataArray)
         for (let index = 0; index < dataArray.length; index++) {
           const data = dataArray[index];
           const marker = this.generateMarker([data.latitude, data.longitude], index);
-          marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>Material</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
+          marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
           this.markers.push(marker)
         }
       }

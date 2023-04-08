@@ -35,12 +35,13 @@ public class Location {
         // Required for Spring Data JPA
     }
 
-    public Location(String name, String address, String phoneNumber, float latitude, float longitude) {
+    public Location(String name, String address, String phoneNumber, float latitude, float longitude, String types) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.types = types;
     }
 
     public Integer getId() {
@@ -89,5 +90,13 @@ public class Location {
 
     public void setLongitude(float longitude) {
         this.longitude = longitude;
+    }
+
+    public String getTypes(){
+        return types;
+    }
+
+    public void setTypes(String types){
+        this.types = types;
     }
 }
