@@ -24,12 +24,10 @@ export class MapComponent{
     center: { lat: 30.227331548383027, lng: -92.02972412109376 }
   }
   initMarkers() {
-
     async function getData(url: string) {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        console.log(response)
         return data;
       } catch (error) {
         return console.error(error);
@@ -40,15 +38,40 @@ export class MapComponent{
     getData(url)
     .then(
       dataLogged => {
+        const autoLayer = Leaflet.layerGroup()
+        const plasticLayer = Leaflet.layerGroup()
+        const metalLayer = Leaflet.layerGroup()
+        const electronicLayer = Leaflet.layerGroup()
+        const paperlayer = Leaflet.layerGroup()
+
         for(let index=0; index < dataLogged.length; index++){
           dataArray.push(dataLogged[index]);
         }
-        console.log(dataArray)
         for (let index = 0; index < dataArray.length; index++) {
           const data = dataArray[index];
           const marker = this.generateMarker([data.latitude, data.longitude], index);
-          marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
-          this.markers.push(marker)
+          if(data.types.includes('Plastic')){
+            marker.addTo(plasticLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
+          }
+          if(data.types.includes('Automotive')){
+            marker.addTo(autoLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
+          }
+          if(data.types.includes('Electronics')){
+            marker.addTo(electronicLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
+          }
+          if(data.types.includes('Paper')){
+            marker.addTo(paperlayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
+          }
+          if(data.types.includes('Metal')){
+            marker.addTo(metalLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
+          }
+          this.map.addLayer(plasticLayer)
+          this.map.addLayer(autoLayer)
+          this.map.addLayer(electronicLayer)
+          this.map.addLayer(paperlayer)
+          this.map.addLayer(metalLayer)
+          // marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
+          // this.markers.push(marker)
         }
       }
     );
