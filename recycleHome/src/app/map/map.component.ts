@@ -3,6 +3,12 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import * as Leaflet from 'leaflet'
 let dataArray: any[] = [];
 
+const autoLayer = Leaflet.layerGroup()
+const plasticLayer = Leaflet.layerGroup()
+const metalLayer = Leaflet.layerGroup()
+const electronicLayer = Leaflet.layerGroup()
+const paperlayer = Leaflet.layerGroup()
+
 Leaflet.Icon.Default.imagePath = 'assets/';
 
 @Component({
@@ -24,6 +30,7 @@ export class MapComponent{
     center: { lat: 30.227331548383027, lng: -92.02972412109376 }
   }
   initMarkers() {
+
     async function getData(url: string) {
       try {
         const response = await fetch(url);
@@ -38,25 +45,21 @@ export class MapComponent{
     getData(url)
     .then(
       dataLogged => {
-        const autoLayer = Leaflet.layerGroup()
-        const plasticLayer = Leaflet.layerGroup()
-        const metalLayer = Leaflet.layerGroup()
-        const electronicLayer = Leaflet.layerGroup()
-        const paperlayer = Leaflet.layerGroup()
-
         for(let index=0; index < dataLogged.length; index++){
           dataArray.push(dataLogged[index]);
         }
         for (let index = 0; index < dataArray.length; index++) {
           const data = dataArray[index];
           const marker = this.generateMarker([data.latitude, data.longitude], index);
+          // could be turned into a switch statement possibly
+          // currently puts markers into 1 layer only
           if(data.types.includes('Plastic')){
             marker.addTo(plasticLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
           }
           if(data.types.includes('Automotive')){
             marker.addTo(autoLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
           }
-          if(data.types.includes('Electronics')){
+          if(data.types.includes('Electronic')){
             marker.addTo(electronicLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
           }
           if(data.types.includes('Paper')){
@@ -98,5 +101,54 @@ export class MapComponent{
 
   markerDragEnd($event: any, index: number) {
     console.log($event.target.getLatLng());
+
+  }
+
+  onCheckboxChange(event: any) {
+    const checkboxId = event.target.id;
+    switch (checkboxId) {
+      case "Automotive":
+        if (event.target.checked) {
+          this.map.addLayer(autoLayer)
+        } else {
+          this.map.removeLayer(autoLayer)
+        }
+        break;
+
+      case "Electronics":
+        if (event.target.checked) {
+          this.map.addLayer(electronicLayer)
+        } else {
+          this.map.removeLayer(electronicLayer)
+        }
+        break;
+
+      case "Plastic":
+        if (event.target.checked) {
+          this.map.addLayer(plasticLayer)
+        } else {
+          this.map.removeLayer(plasticLayer)
+        }
+        break;
+
+      case "Paper":
+        if (event.target.checked) {
+          this.map.addLayer(paperlayer)
+        } else {
+          this.map.removeLayer(paperlayer)
+        }
+        break;
+
+      case "Metal":
+        if (event.target.checked) {
+          this.map.addLayer(metalLayer)
+        } else {
+          this.map.removeLayer(metalLayer)
+        }
+        break;
+      default:
+        // Handle any other checkbox
+        break;
+    }
   }
 }
