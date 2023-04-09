@@ -10,6 +10,8 @@ const electronicLayer = Leaflet.layerGroup()
 const paperlayer = Leaflet.layerGroup()
 
 Leaflet.Icon.Default.imagePath = 'assets/';
+var icon = new Leaflet.Icon.Default();
+icon.options.shadowSize = [0,0];
 
 @Component({
   selector: 'app-map',
@@ -50,32 +52,42 @@ export class MapComponent{
         }
         for (let index = 0; index < dataArray.length; index++) {
           const data = dataArray[index];
-          const marker = this.generateMarker([data.latitude, data.longitude], index);
-          // could be turned into a switch statement possibly
+          // const marker = this.generateMarker([data.latitude, data.longitude], index);
           // currently puts markers into 1 layer only
           if(data.types.includes('Plastic')){
+            const marker = this.generateMarker([data.latitude, data.longitude], index);
+            marker.setIcon(icon)
             marker.addTo(plasticLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
           }
           if(data.types.includes('Automotive')){
+            const marker = this.generateMarker([data.latitude, data.longitude], index);
+            marker.setIcon(icon)
             marker.addTo(autoLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
           }
           if(data.types.includes('Electronic')){
+            const marker = this.generateMarker([data.latitude, data.longitude], index);
+            marker.setIcon(icon)
             marker.addTo(electronicLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
           }
           if(data.types.includes('Paper')){
+            const marker = this.generateMarker([data.latitude, data.longitude], index);
+            marker.setIcon(icon)
             marker.addTo(paperlayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
           }
           if(data.types.includes('Metal')){
+            const marker = this.generateMarker([data.latitude, data.longitude], index);
+            marker.setIcon(icon)
             marker.addTo(metalLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
           }
-          this.map.addLayer(plasticLayer)
-          this.map.addLayer(autoLayer)
-          this.map.addLayer(electronicLayer)
-          this.map.addLayer(paperlayer)
-          this.map.addLayer(metalLayer)
+
           // marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
           // this.markers.push(marker)
         }
+        this.map.addLayer(plasticLayer)
+        this.map.addLayer(autoLayer)
+        this.map.addLayer(electronicLayer)
+        this.map.addLayer(paperlayer)
+        this.map.addLayer(metalLayer)
       }
     );
   }
