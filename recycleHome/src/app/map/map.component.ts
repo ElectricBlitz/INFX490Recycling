@@ -9,6 +9,8 @@ const metalLayer = Leaflet.layerGroup()
 const electronicLayer = Leaflet.layerGroup()
 const paperlayer = Leaflet.layerGroup()
 
+
+// removes the defauly shadow from icons
 Leaflet.Icon.Default.imagePath = 'assets/';
 var icon = new Leaflet.Icon.Default();
 icon.options.shadowSize = [0,0];
@@ -52,8 +54,6 @@ export class MapComponent{
         }
         for (let index = 0; index < dataArray.length; index++) {
           const data = dataArray[index];
-          // const marker = this.generateMarker([data.latitude, data.longitude], index);
-          // currently puts markers into 1 layer only
           if(data.types.includes('Plastic')){
             const marker = this.generateMarker([data.latitude, data.longitude], index);
             marker.setIcon(icon)
@@ -79,9 +79,6 @@ export class MapComponent{
             marker.setIcon(icon)
             marker.addTo(metalLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
           }
-
-          // marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
-          // this.markers.push(marker)
         }
         this.map.addLayer(plasticLayer)
         this.map.addLayer(autoLayer)
