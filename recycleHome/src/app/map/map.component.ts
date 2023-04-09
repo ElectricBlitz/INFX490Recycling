@@ -3,7 +3,17 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import * as Leaflet from 'leaflet'
 let dataArray: any[] = [];
 
+const autoLayer = Leaflet.layerGroup()
+const plasticLayer = Leaflet.layerGroup()
+const metalLayer = Leaflet.layerGroup()
+const electronicLayer = Leaflet.layerGroup()
+const paperlayer = Leaflet.layerGroup()
+
+
+// removes the defauly shadow from icons
 Leaflet.Icon.Default.imagePath = 'assets/';
+var icon = new Leaflet.Icon.Default();
+icon.options.shadowSize = [0,0];
 
 @Component({
   selector: 'app-map',
@@ -44,10 +54,37 @@ export class MapComponent{
         }
         for (let index = 0; index < dataArray.length; index++) {
           const data = dataArray[index];
-          const marker = this.generateMarker([data.latitude, data.longitude], index);
-          marker.addTo(this.map).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>Material</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`);
-          this.markers.push(marker)
+          if(data.types.includes('Plastic')){
+            const marker = this.generateMarker([data.latitude, data.longitude], index);
+            marker.setIcon(icon)
+            marker.addTo(plasticLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
+          }
+          if(data.types.includes('Automotive')){
+            const marker = this.generateMarker([data.latitude, data.longitude], index);
+            marker.setIcon(icon)
+            marker.addTo(autoLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
+          }
+          if(data.types.includes('Electronic')){
+            const marker = this.generateMarker([data.latitude, data.longitude], index);
+            marker.setIcon(icon)
+            marker.addTo(electronicLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
+          }
+          if(data.types.includes('Paper')){
+            const marker = this.generateMarker([data.latitude, data.longitude], index);
+            marker.setIcon(icon)
+            marker.addTo(paperlayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
+          }
+          if(data.types.includes('Metal')){
+            const marker = this.generateMarker([data.latitude, data.longitude], index);
+            marker.setIcon(icon)
+            marker.addTo(metalLayer).bindPopup(`<b>${data.name} <p>${data.phoneNumber}</p> <ul><li>${data.types}</li> <a href="http://www.google.com/maps/place/${data.latitude},${data.longitude}">Google Maps</a></b>`)
+          }
         }
+        this.map.addLayer(plasticLayer)
+        this.map.addLayer(autoLayer)
+        this.map.addLayer(electronicLayer)
+        this.map.addLayer(paperlayer)
+        this.map.addLayer(metalLayer)
       }
     );
   }
@@ -73,5 +110,54 @@ export class MapComponent{
 
   markerDragEnd($event: any, index: number) {
     console.log($event.target.getLatLng());
+
+  }
+
+  onCheckboxChange(event: any) {
+    const checkboxId = event.target.id;
+    switch (checkboxId) {
+      case "Automotive":
+        if (event.target.checked) {
+          this.map.addLayer(autoLayer)
+        } else {
+          this.map.removeLayer(autoLayer)
+        }
+        break;
+
+      case "Electronics":
+        if (event.target.checked) {
+          this.map.addLayer(electronicLayer)
+        } else {
+          this.map.removeLayer(electronicLayer)
+        }
+        break;
+
+      case "Plastic":
+        if (event.target.checked) {
+          this.map.addLayer(plasticLayer)
+        } else {
+          this.map.removeLayer(plasticLayer)
+        }
+        break;
+
+      case "Paper":
+        if (event.target.checked) {
+          this.map.addLayer(paperlayer)
+        } else {
+          this.map.removeLayer(paperlayer)
+        }
+        break;
+
+      case "Metal":
+        if (event.target.checked) {
+          this.map.addLayer(metalLayer)
+        } else {
+          this.map.removeLayer(metalLayer)
+        }
+        break;
+      default:
+        // Handle any other checkbox
+        break;
+    }
   }
 }
