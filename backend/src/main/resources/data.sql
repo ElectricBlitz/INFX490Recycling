@@ -43,3 +43,5 @@ INSERT INTO Account (firstName, lastName, username, password, rewardsPoints) VAL
 ('Ryne','Guercio','admin3','password3',100),
 ('Lauren','Coleman','admin4','password4',100),
 ('Gabe','Trahan','admin5','password5',100);
+INSERT INTO Comments (username, comment, created) VALUES
+('admin', 'This is a test', CURRENT_DATE)
