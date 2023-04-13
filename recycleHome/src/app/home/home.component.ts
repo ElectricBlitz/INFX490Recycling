@@ -7,21 +7,32 @@ import { Comment } from '../classes/comment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor() {
+    
+  }
 
   ngOnInit(): void{
-
+    fetch("http://localhost:8080/api/Comments")
+    .then(data => {
+      return data.json
+    })
+    .then(data =>{
+      console.log(data);
+    })
   }
 
   currentID:number = 1;
 
-  comments:Comment[] = [new Comment(0,"test","this is a test comment")];
+  comments:Comment[] = [new Comment(0,"test","this is a test comment", new Date(2023,3,12,17,37,0))];
+
+  name: string = '';
+
+  body: string = '';
 
   readAndComment(){
-    var name = (<HTMLInputElement>document.getElementById("name")).value;
-    var body = (<HTMLInputElement>document.getElementById("body")).value;
-    var temp = new Comment(this.currentID, name, body)
-    if(name != "" && body != ""){
+    var currDate = new Date();
+    var temp = new Comment(this.currentID, this.name, this.body, currDate)
+    if(this.name != "" && this.body != ""){
       this.addComment(temp);
       this.currentID = this.currentID + 1;
     }
@@ -29,7 +40,11 @@ export class HomeComponent implements OnInit {
 
   addComment(newComment:Comment){
     this.comments.push(newComment);
+
+    this.name = '';
+    this.body = '';
   }
+
 }
 
 

@@ -43,9 +43,9 @@
         <p class="formHeader">Leave a comment</p>
         <form id="comment-form">
     
-            <input class="formInput" type="text" id="name" name="name">Name <br> <br>
+            <input class="formInput" type="text" name="name" [(ngModel)]="name">Name <br> <br>
     
-            <input class="formInput" type="text" id="body" name="body">Body <br> <br>
+            <input class="formInput" type="text" name="body" [(ngModel)]="body">Body <br> <br>
     
             <button class="commentSubmit" type="button" (click)="readAndComment()">Submit</button>
         </form>
@@ -54,7 +54,7 @@
     <p class="commentHeader">Comments</p>
     <div class="commentList" *ngFor="let comment of comments">
         <p class="comments">
-            {{comment.name}} <br>
+            {{comment.name}}        {{ comment.time }}<br>
             {{comment.body}}
         </p>
         <br>
