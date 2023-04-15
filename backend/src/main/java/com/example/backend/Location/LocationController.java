@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api")
 public class LocationController {
 
     @Autowired
     private LocationRepository locationRepository;
 
-    @GetMapping("api/locations")
+    @GetMapping("/locations")
     public List<Location> getAllLocations() {
         return locationRepository.findAll();
     }

@@ -11,6 +11,7 @@ import { RewardsComponent } from './rewards/rewards.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { MapComponent } from './map/map.component';
 import { AdminComponent } from './admin/admin.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdminComponent } from './admin/admin.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LeafletModule
+    LeafletModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
