@@ -2,12 +2,23 @@ package com.example.backend.Account;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+
+import org.hibernate.mapping.Collection;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 
 @Entity
+@Table(name = "Account", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class Account {
     
     @Id
@@ -29,15 +40,25 @@ public class Account {
     @Column(name = "rewardspoints")
     private Integer rewardspoints;
 
+    @Column(name = "role")
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "user_roles",
+        joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+    )
+    private Collection role;
+
     public Account() {
     }
 
-    public Account(String firstname, String lastname, String username, String password, Integer rewardspoints) {
+    public Account(String firstname, String lastname, String username, String password, Integer rewardspoints, Collection role) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.password = password;
         this.rewardspoints = rewardspoints;
+        this.role = role;
     }
 
     public long getId() {
@@ -88,5 +109,12 @@ public class Account {
         this.rewardspoints = rewardspoints;
     }
 
+    public Collection getRole() {
+        return role;
+    }
+
+    public void setRole(Collection role) {
+        this.role = role;
+    }
 }
 
