@@ -35,11 +35,13 @@ INSERT INTO location (name, address, phonenumber, latitude, longitude, types) VA
 ('Albertsons', '2678 Johnston Street, Lafayette, LA 70503', '337-233-2940', 30.2087105, -92.0386436, 'Plastic'),
 ('Albertsons', '2863 Ambassador Caffery Pkwy, Lafayette, LA 70506', '337-406-8887', 30.1980949, -92.0738603, 'Plastic'),
 ('Albertsons', '4400 Ambassador Caffery Pkwy, Lafayete, LA 70506', '337-984-4587', 30.156803, -92.0512228, 'Plastic');
-INSERT INTO Account (firstName, lastName, username, password, rewardsPoints) VALUES 
-('Dylan','Bertrand','admin','password',100),
-('Phillip','Guidry','admin2','password2',100),
-('Ryne','Guercio','admin3','password3',100),
-('Lauren','Coleman','admin4','password4',100),
-('Gabe','Trahan','admin5','password5',100);
+INSERT INTO Account (firstName, lastName, username, password, rewardsPoints, role) VALUES 
+('Dylan','Bertrand','admin','password',100,'admin'),
+('Phillip','Guidry','admin2','password2',100,'admin'),
+('Ryne','Guercio','admin3','password3',100,'admin'),
+('Lauren','Coleman','admin4','password4',100,'admin'),
+('Gabe','Trahan','admin5','password5',100,'admin'),
+('Test','lastname','user1','userPassword',5,'user'),
+('Test2','lastname2','user1','userPassword',5,'user');
 INSERT INTO Comments (username, comment, created) VALUES
-('admin', 'This is a test', CURRENT_DATE)
+('admin', 'This is a test', CURRENT_DATE);
