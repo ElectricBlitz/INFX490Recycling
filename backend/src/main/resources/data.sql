@@ -41,7 +41,6 @@ INSERT INTO Account (firstName, lastName, username, password, rewardsPoints, rol
 ('Ryne','Guercio','admin3','password3',100,'admin'),
 ('Lauren','Coleman','admin4','password4',100,'admin'),
 ('Gabe','Trahan','admin5','password5',100,'admin'),
-('Test','lastname','user1','userPassword',5,'user'),
-('Test2','lastname2','user1','userPassword',5,'user');
+('Test','lastname','user1','userPassword',5,'user');
 INSERT INTO Comments (username, comment, created) VALUES
 ('admin', 'This is a test', CURRENT_DATE);
