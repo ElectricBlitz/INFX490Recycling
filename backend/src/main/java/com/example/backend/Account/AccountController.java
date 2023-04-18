@@ -75,6 +75,17 @@ public class AccountController {
     }
   }
 
+  @GetMapping("/accounts/{username}")
+  public ResponseEntity<Account> getAccountByUsername(@PathVariable("username") String username) {
+    Account user = AccountRepository.findByUsername(username);
+    
+    if (user != null){
+      return new ResponseEntity<>(user, HttpStatus.OK);
+    } else {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+  }
+
   @PostMapping("/accounts")
   public ResponseEntity<Account> createAccount(@RequestBody Account account) {
     try {
