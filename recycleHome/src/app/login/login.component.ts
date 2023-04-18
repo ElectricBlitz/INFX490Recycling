@@ -12,27 +12,31 @@ export class LoginComponent {
   pass: string = '';
 
   checkLogin(){
-    // fetch(`localhost:8080/api/accounts?username=${user}&password=${pass}`)
-    // .then(response => {
-    //   if (response.ok) {
-    //     return response.json(); // Parse the JSON response from the server
-    //   } else {
-    //     throw new Error('Network response was not ok.');
-    //   }
-    // })
-    // .then(data => {
-    //   if (data.length > 0) {
-    //     console.log(`User ${user} with password ${pass} exists in the database.`);
-    //     this.updateVariable(data.id)
-    //   } else {
-    //     console.log(`User ${user} with password ${pass} does not exist in the database.`);
-    //   }
-    // })
-    // .catch(error => {
-    //   console.error('There was a problem with the fetch operation:', error);
-    // });
+    const data = {
+      username: this.user,
+      password: this.pass
+    }
 
-    console.log(this.user + " " + this.pass);
+    fetch("http://localhost:8080/api/authenticate?username=" + data.username + "&password=" + data.password, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)})
+    .then(response => {
+      console.log(response);
+      console.log(response.status);
+      return response.status;
+    })
+    .then(data =>{
+      if(data == 200) {
+        //true
+      } else {
+        //false
+      }
+      console.log(data);
+    })
+    .catch(error => console.error(error));   
   }
 
 }

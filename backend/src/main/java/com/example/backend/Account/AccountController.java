@@ -47,16 +47,16 @@ public class AccountController {
   }
 
   @PostMapping("/authenticate")
-  public ResponseEntity<Boolean> authenticateAccount(@RequestParam(required = true) String username, String password){
+  public ResponseEntity<Boolean> authenticateAccount(@RequestParam(required = true) String username,@RequestParam(required = true) String password){
     
     try{
       if(AccountRepository.findByUsername(username) != null){
-        if(AccountRepository.findByUsername(username).getPassword() == password){
+        if(AccountRepository.findByUsername(username).getPassword().equals(password)){
           return new ResponseEntity<>(true, HttpStatus.OK);
-        }
+        } 
         else return new ResponseEntity<>(false, HttpStatus.NOT_ACCEPTABLE);
       }
-      else return new ResponseEntity<>(false, HttpStatus.NO_CONTENT);
+      else return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
     
     }
     catch (Exception e) {
