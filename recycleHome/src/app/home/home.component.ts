@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Comment } from '../classes/comment';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { Comment } from '../classes/comment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor() {
+  constructor(private userService: UserService) {
     
   }
 
@@ -31,13 +32,12 @@ export class HomeComponent implements OnInit {
 
   comments:Comment[] = [];
 
-  name: string = '';
-
   body: string = '';
 
   readAndComment(){
+    var name = this.userService.getUsername();
     var currDate = new Date();
-    var temp = new Comment(this.currentID, this.name, this.body, currDate)
+    var temp = new Comment(this.currentID, name, this.body, currDate)
     // if(this.name != "" && this.body != ""){
     //   this.addComment(temp);
     //   this.currentID = this.currentID + 1;
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
       userName: temp.name
     };
 
-    if(this.name != "" && this.body != ""){
+    if( this.userService.getFirst() != "" && this.userService.getFirst() != "" && this.body != ""){
       fetch("http://localhost:8080/api/comments", {
         method: 'POST',
         headers: {
@@ -67,12 +67,14 @@ export class HomeComponent implements OnInit {
       this.addComment(temp);
       this.currentID = this.currentID + 1;
     }
+    else{
+    
+    }
   }
 
   addComment(newComment:Comment){
     this.comments.push(newComment);
-
-    this.name = '';
+    
     this.body = '';
   }
 

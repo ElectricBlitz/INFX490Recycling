@@ -75,7 +75,7 @@ public class AccountController {
     }
   }
 
-  @GetMapping("/accounts/{username}")
+  @GetMapping("/accounts/getByUser/{username}")
   public ResponseEntity<Account> getAccountByUsername(@PathVariable("username") String username) {
     Account user = AccountRepository.findByUsername(username);
     

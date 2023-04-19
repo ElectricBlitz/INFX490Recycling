@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,12 @@ export class LoginComponent {
   user: string = '';
 
   pass: string = '';
+
+  loginMsg: string = '';
+
+  constructor(private userService:UserService){
+
+  }
 
   checkLogin(){
     const data = {
@@ -28,15 +35,27 @@ export class LoginComponent {
       console.log(response.status);
       return response.status;
     })
-    .then(data =>{
-      if(data == 200) {
+    .then(status =>{
+      if(status == 200) {
         //true
+        this.loginMsg = "Login sucessful. Welcome, " + this.user;
+        fetch("http://localhost:8080/api/accounts/getByUser/" + this.user)
+        .then(userResponse => userResponse.json())
+        .then(userData => {
+          console.log(userData);
+          this.userService.setUser(userData);
+          console.log(this.userService.getUser());
+        })
       } else {
         //false
+        this.loginMsg = "Incorrect username or password"
       }
-      console.log(data);
     })
     .catch(error => console.error(error));   
+  }
+
+  checkUser(){
+    console.log(this.userService.getUser());
   }
 
 }
