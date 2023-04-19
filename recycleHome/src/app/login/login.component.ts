@@ -54,8 +54,4 @@ export class LoginComponent {
     .catch(error => console.error(error));   
   }
 
-  checkUser(){
-    console.log(this.userService.getUser());
-  }
-
 }

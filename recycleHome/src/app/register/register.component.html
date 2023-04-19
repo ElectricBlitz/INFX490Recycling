@@ -12,7 +12,7 @@
         
         <br>
 
-        <input type="text" id="fname" name="fname">
+        <input type="text" name="fname" [(ngModel)]="fname">
         
         <br>
         <br>
@@ -21,7 +21,7 @@
         
         <br>
 
-        <input type="text" id="lname" name="lname">
+        <input type="text" name="lname" [(ngModel)]="lname">
         
         <br>
         <br>
@@ -30,7 +30,7 @@
         
         <br>
 
-        <input type="text" id="user" name="user">
+        <input type="text" id="user" name="user" [(ngModel)]="user">
         
         <br>
         <br>
@@ -39,7 +39,7 @@
         
         <br>
 
-        <input type="text" id="pass" name="pass">
+        <input type="text" name="pass" [(ngModel)]="pass">
         
         <br>
         <br>
@@ -48,12 +48,12 @@
         
         <br>
 
-        <input type="text" id="cpass" name="cpass">
+        <input type="text" name="cpass" [(ngModel)]="cpass">
         
         <br>
         <br>
 
-        <input type="submit" value="Register">
+        <input (click)="createUser()" type="button" value="Register">
 
     </form>
      
