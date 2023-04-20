@@ -67,7 +67,7 @@ export class UserService {
       role: this.user.role
     }
     fetch("http://localhost:8080/api/accounts/" + this.user.id.toString(), {
-      method: 'POST',
+      method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },

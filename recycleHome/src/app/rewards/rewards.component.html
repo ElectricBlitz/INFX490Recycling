@@ -10,7 +10,7 @@
             {{reward.cost}} &nbsp; &nbsp; &nbsp;
             {{reward.item}} &nbsp; &nbsp;
             {{reward.description}} &nbsp; &nbsp;
-            <button type="button" (click)="claimReward()">
+            <button type="button" (click)="claimReward(reward.cost)">
                 Claim this reward
             </button>
         </p>

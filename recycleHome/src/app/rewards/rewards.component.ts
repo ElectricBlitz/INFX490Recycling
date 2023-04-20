@@ -23,9 +23,13 @@ export class RewardsComponent implements OnInit {
 
     
 
-    rewardsList:Reward[] = [new Reward(0,30,"Coasters","Coasters with our logo, made with recycled materials.")];
+    rewardsList:Reward[] = [new Reward(0,2,"Thank You","Nothing, but thank you for recycling"),new Reward(1,30,"Coasters","Coasters with our logo, made with recycled materials.")];
 
-    claimReward(){
-
+    claimReward(cost:number){
+      if(this.userPoints >= cost){
+        this.userPoints = this.userPoints - cost;
+        this.userService.setPoints(this.userPoints);
+        this.userService.updateData();
+      }
     }
 }
