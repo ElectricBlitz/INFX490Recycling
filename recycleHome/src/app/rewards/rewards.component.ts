@@ -32,4 +32,32 @@ export class RewardsComponent implements OnInit {
         this.userService.updateData();
       }
     }
+
+    code: number = 0;
+
+    addPoints(){
+      if(this.userService.getUsername() != ""){
+        if(this.code == 123456){
+          this.userPoints = this.userPoints + 50;
+          this.userService.setPoints(this.userPoints);
+          this.userService.updateData();
+        }
+        else if(this.code == 123123){
+          this.userPoints = this.userPoints + 100;
+          this.userService.setPoints(this.userPoints);
+          this.userService.updateData();
+        }
+        else if(this.code == 456456){
+          this.userPoints = this.userPoints + 300;
+          this.userService.setPoints(this.userPoints);
+          this.userService.updateData();
+        }
+        else{
+  
+        }
+      }
+      else{
+
+      }
+    }
 }
