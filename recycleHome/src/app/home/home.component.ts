@@ -8,6 +8,68 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  bwcCollection:string[] = [
+    '"Power Wheels" ride-on toy cars (remove battery)',
+    "Air conditioners (window units only)",
+    "Carpeting and area rugs (one-piece construction, rolled and taped)",
+    "Portable/moveable basketball goal and base",
+    "Carrying cages for large animals",
+    "Large appliances/small appliances (microwaves, floor fans, vacuum cleaners)",
+    "Large ice chest/cooler or storage container (both empty)",
+    "Large plastic children's toys",
+    "Lawn furniture and patio umbrellas",
+    "Liner for movable swimming pool (must be cut, rolled, taped, or tied, and each piece weighs less than 50 pounds)",
+    'Manual garbage cans (must be empty and labeled "discard this can")',
+    "Residential furniture (including sofas, loveseats, recliners, chairs, dining tables, desks, mattresses, and box springs)",
+    "Television sets",
+    "Trampoline mat (rolled and taped)",
+    "Large empty boxes used for appliances, TVs, etc.",
+    "Fitness equipment (treadmills, exercise bikes)",
+    "Wading pool (roll and taped), frame for movable swimming pool (rolled, taped, and/or tied, and weighs less than 50 pounds)"
+  ]
+
+  cAccepted:string[] = [
+    "Alkaline Batteries",
+    "Chemical Cleaners",
+    "Fluorescent Tubes",
+    "Gasoline",
+    "Herbicides",
+    "Mercury Thermometers",
+    "Paint & Paint Products",
+    "Paint Thinner & Stripper",
+    "Pesticides",
+    "Photographic Chemicals",
+    "Pool Chemicals",
+    "Stains",
+    "Turpentine"
+  ]
+
+  eAccepted:string[] = [
+    "Computer Hardware",
+    "Computer Accessories",
+    "Laptops",
+    "Processors",
+    "Networking Equipment",
+    "Circuit Boards (any type)",
+    "Flat Screen Monitors/TVs",
+    "CRT Monitors/TVs (bulky tube type)",
+    "Printers",
+    "Fax Machines",
+    "Toner & Ink Jet Cartridges",
+    "Digital Cameras & DVRs",
+    "MP3 & DVD Players",
+    "Stereos",
+    "DVD Movies & Video Games",
+    "XBoxes, Playstations, Wii",
+    "Portable GPS Devices",
+    "Cell Phones/Bag Phones",
+    "Telephone & Telephone Systems",
+    "Security Systems",
+    "Uninterruptible Power Supplies (UPS)",
+    "Telephone & Computer Cables"
+  ]
+
   constructor(private userService: UserService) {
     
   }
