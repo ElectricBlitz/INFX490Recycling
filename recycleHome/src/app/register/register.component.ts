@@ -28,8 +28,8 @@ export class RegisterComponent {
     }
 
     if(this.pass == this.cpass){
-      
-      fetch("http://localhost:8080/api/accounts", {
+
+      fetch(window.location.origin + "/api/accounts", {
       method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ export class RegisterComponent {
     })
     .catch(error => console.error(error));
     }
-    
+
   }
 
 }
