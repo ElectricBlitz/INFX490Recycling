@@ -10,10 +10,18 @@
             {{reward.cost}} &nbsp; &nbsp; &nbsp;
             {{reward.item}} &nbsp; &nbsp;
             {{reward.description}} &nbsp; &nbsp;
-            <button type="button" (click)="claimReward()">
+            <button type="button" (click)="claimReward(reward.cost)">
                 Claim this reward
             </button>
         </p>
     </div> 
+
+    <div class="codeForm">
+        <form>
+            <input class="codeInput" type="text" name="code" [(ngModel)]="code"> <br> <br>
+        
+            <button class="codeSubmit" type="button" (click)="addPoints()">Submit</button>
+        </form>
+    </div>
 </div>
  

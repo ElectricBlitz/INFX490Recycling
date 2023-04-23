@@ -10,13 +10,13 @@
 
         <br>
         
-        <form>
+        <form novalidate>
 
             <label for="user">Username:</label>
             
             <br>
 
-            <input type="text" id="user" name="user">
+            <input type="text" name="user" [(ngModel)]="user">
             
             <br>
             <br>
@@ -25,14 +25,19 @@
             
             <br>
 
-            <input type="text" id="pass" name="pass">
+            <input type="text" name="pass" [(ngModel)]="pass">
             
             <br>
             <br>
 
-            <input type="submit" value="Login">
+            <button (click)="checkLogin()" type="button" value="Login">Submit</button>
 
         </form>
+
+        <br>
+        <br>
+
+        <p>{{ loginMsg }}</p>
 
     </div>
 

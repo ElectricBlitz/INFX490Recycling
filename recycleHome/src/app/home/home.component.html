@@ -1,6 +1,6 @@
 <div class="homePage">
     <div>
-        <img src="../../assets/recycling_logo.png" alt="">
+        <img class="logo" src="../../assets/recycling_logo.png" alt="">
 
         <br>
         <h1>Lafayette Recycling Initiative</h1>
@@ -37,15 +37,138 @@
             Recycling Initiative collection program. Earn points for recycling and creating a 
             cleaner Lafayette tomorrow.
         </p>
+
+        <br>
+        <br>
+
+        <h3 class="sectionTitle">Lafayette Recycling</h3>
+    
+        <p class="text">
+            In 2021, the recycling rate for Lafayette Parish was 21.42%, down 2% from the previous year. 
+            The Lafayette Recycling Initiative is a citywide project geared towards raising that rate and increasing 
+            recycling throughout Lafayette.
+        </p>
+
+        <br>
+        <br>
+
+        <p class="text">
+            The Lafayette Recycling Initiative offers information on the city of Lafayette’s 
+            municipal recycling collection. We also provide information on recycling drop-off 
+            locations. All residents and visitors of Lafayette may use these drop-off locations.
+        </p>
+
+        <h3 class="sectionTitle">The Numbers</h3>
+
+        <img class="graph" src="../../assets/graph1.png" alt="">
+
+        <img class="graph" src="../../assets/graph2.png" alt="">
+
+        <br>
+        <br>
+
+        <h3 class="sectionTitle">Municipal Recycling</h3>
+
+        <p class="text">
+            The City of Lafayette Curbside Recycling Program is available to all Lafayette 
+            residents who have the "total environmental charge" on their monthly Lafayette Utilities System bill. 
+            Registered residents will receive one recycling bin free of charge.
+        </p>
+
+        <br>
+        <br>
+
+        <p class="text">
+            Registration for recycling can be completed by calling 337-205-7710 or going to
+            <a class="inline-link" href="http://www.acadianawaste.com/recycling-service/" target="_blank" rel="noopener">this page</a>.
+        </p>
+
+        <br>
+        <br>
+
+        <p class="text">
+            The Curbside Recycling Program only accepts clean flattened cardboard, paper, metal cans, 
+            and rigid plastic containers. 
+        </p>
+
+        <br>
+        <br>
+
+        <img class="info" src="../../assets/recycleInfo.png" alt="">
+
+        <br>
+        <br>
+
+        <p class="text">
+            Republic Services will conduct bulky waste pickup services one week per month. 
+            Visit the City of Lafayette’s 
+            <a class="inline-link" href="https://lcg.maps.arcgis.com/apps/instant/lookup/index.html?appid=55c59bd221cc46cb9041ae6381688e19" target="_blank" rel="noopener">Curbside Collection Schedule</a>
+            page to find your collection week. 
+        </p>
+
+        <h4 class="subHeader">​Bulky Waste Collection Items:</h4>
+
+        <ul>
+            <li *ngFor="let item of bwcCollection">{{ item }}</li>
+        </ul>
+
+        <br>
+        <br>
+
+        <p class="text">
+            Soft plastics, electronics, and glass can be dropped off at an appropriate drop-off site. 
+            You can check for nearby locations <a class="inline-link" href="http://localhost:8080/#/map" target="_blank" rel="noopener">here</a>
+        </p>
+
+        <br>
+        <br>
+
+        <h3 class="sectionTitle">Household Hazardous Waste Day</h3>
+
+        <p class="text">
+            Household Hazardous Waste Day is a biannual event hosted by Lafayette Parish Public Works Department 
+            in partnership with CGI. During the June 2022 Household Hazardous Waste Day, 20 tons of hazardous waste were collected. 
+            A date and location for upcoming Hazardous Waste Events will be posted near the event date.
+        </p>
+
+        <h4 class="subHeader">Chemicals Accepted</h4>
+
+        <ul>
+            <li *ngFor="let item of cAccepted">{{ item }}</li>
+        </ul>
+
+        <h4 class="subHeader">Electronics Accepted</h4>
+
+        <ul>
+            <li *ngFor="let item of eAccepted">{{ item }}</li>
+        </ul>
+
+        <br>
+        <br>
+
+        <h3 class="sectionTitle">Computer Donation</h3>
+
+        <p class="text"><a clss="inline-link" href="https://www.computerswithcauses.org/computer-donation-louisiana/" target="_blank" rel="noopener">Computers With Causes</a></p>
+
+        <br>
+        <br>
+
+        <h3 class="sectionTitle">LRI Rewards Program</h3>
+
+        <p class="text">
+            The Lafayette Recycling Initiative is a collaboration with local sponsors that rewards residents 
+            for engaging in the collection program. Now you can earn points for recycling that can be turned in for rewards.
+        </p>
+
     </div>
     
     <div class="commentForm">
         <p class="formHeader">Leave a comment</p>
         <form id="comment-form">
     
-            <input class="formInput" type="text" id="name" name="name">Name <br> <br>
+            <!-- <input class="formInput" type="text" name="name" [(ngModel)]="name">Name <br> <br> -->
     
-            <input class="formInput" type="text" id="body" name="body">Body <br> <br>
+            <input class="formInput" type="text" name="body" [(ngModel)]="body"> <br> <br>
     
             <button class="commentSubmit" type="button" (click)="readAndComment()">Submit</button>
         </form>
@@ -54,7 +177,7 @@
     <p class="commentHeader">Comments</p>
     <div class="commentList" *ngFor="let comment of comments">
         <p class="comments">
-            {{comment.name}} <br>
+            {{comment.name}}        {{ comment.time }}<br>
             {{comment.body}}
         </p>
         <br>

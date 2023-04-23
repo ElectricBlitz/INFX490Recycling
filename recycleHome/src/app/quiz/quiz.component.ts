@@ -14,7 +14,15 @@ export class QuizComponent implements OnInit {
   }
 
   questions:Question[] = [new Question(0,"The decomposition time of batteries is roughly:","350 years","100 years","5 months","10 years","100 years"),
-  new Question(1,"Which item can be collected by municipal recycling?","any plastics","soft plastics","clean and dry hard plastics","all of the above","clean and dry hard plastics")];
+  new Question(1,"Which item can be collected by municipal recycling?","any plastics","soft plastics","clean and dry hard plastics","all of the above","clean and dry hard plastics"),
+  new Question(2,"What item should NOT go into your recycling bin?","food","batteries","diapers","all of the above","all of the above"),
+  new Question(3,"Which item can be collected by municipal recycling?","plastic coat hangers","plastic straws","rigid plastics with a screw top/neck","plastic flower pots","rigid plastics with a screw top/neck"),
+  new Question(4,"Which metal item can be collected by minicipal recycling?","propane tanks","aerosol cans","drink cans","hazardous waste containers","drink cans"),
+  new Question(5,"Which item can NOT be recycled by municipal recycling?","toys","flattened cardboard","paper","metal cans","toys"),
+  new Question(6,"The decomposition time of monofilament fishing line is roughly:","50 years","200 years","600 years","1000 years","600 years"),
+  new Question(7,"The decomposition time of styrofoam is roughly:","10 years","100 years","1000 years","styrofoam does not biodegrade","styrofoam does not biodegrade"),
+  new Question(8,"Recycling:","saves energy","creates jobs","conserves natural resources","all of the above","all of the above"),
+  new Question(9,"Lafayette parish landfilled how many tons of garbage in 2021?","30,000","80,000","70,000","50,000","80,000")];
 
   ans1:number = 1;
   ans2:number = 1;
