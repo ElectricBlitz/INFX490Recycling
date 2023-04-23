@@ -71,11 +71,11 @@ export class HomeComponent implements OnInit {
   ]
 
   constructor(private userService: UserService) {
-    
+
   }
 
   ngOnInit(): void{
-    fetch("http://localhost:8080/api/comments")
+    fetch(window.location.origin + "/api/comments")
     .then(response => {
       return response.json();
     })
@@ -113,7 +113,7 @@ export class HomeComponent implements OnInit {
     };
 
     if( this.userService.getFirst() != "" && this.userService.getFirst() != "" && this.body != ""){
-      fetch("http://localhost:8080/api/comments", {
+      fetch(window.location.origin + "/api/comments", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -130,13 +130,13 @@ export class HomeComponent implements OnInit {
       this.currentID = this.currentID + 1;
     }
     else{
-    
+
     }
   }
 
   addComment(newComment:Comment){
     this.comments.push(newComment);
-    
+
     this.body = '';
   }
 
