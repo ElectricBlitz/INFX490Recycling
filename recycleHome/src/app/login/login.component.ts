@@ -24,7 +24,7 @@ export class LoginComponent {
       password: this.pass
     }
 
-    fetch("http://localhost:8080/api/authenticate?username=" + data.username + "&password=" + data.password, {
+    fetch(window.location.origin + "/api/authenticate?username=" + data.username + "&password=" + data.password, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ export class LoginComponent {
       if(status == 200) {
         //true
         this.loginMsg = "Login sucessful. Welcome, " + this.user;
-        fetch("http://localhost:8080/api/accounts/getByUser/" + this.user)
+        fetch(window.location.origin + "/api/accounts/getByUser/" + this.user)
         .then(userResponse => userResponse.json())
         .then(userData => {
           console.log(userData);
@@ -51,7 +51,7 @@ export class LoginComponent {
         this.loginMsg = "Incorrect username or password"
       }
     })
-    .catch(error => console.error(error));   
+    .catch(error => console.error(error));
   }
 
 }

@@ -45,7 +45,8 @@ export class MapComponent{
       }
     }
     //fetches data from the backend and creates a map based on it
-    const url = "http://localhost:8080/api/locations";
+    const url2 = "http://localhost:8080/api/locations";
+    const url = window.location.origin + "/api/locations"
     getData(url)
     .then(
       dataLogged => {
