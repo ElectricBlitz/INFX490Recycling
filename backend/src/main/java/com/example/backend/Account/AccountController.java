@@ -19,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 
 @RestController
 @RequestMapping("/api")
@@ -51,7 +53,7 @@ public class AccountController {
     
     try{
       if(AccountRepository.findByUsername(username) != null){
-        if(AccountRepository.findByUsername(username).getPassword().equals(password)){
+        if(AccountRepository.findByUsername(username).getPassword().equals(BCrypt.hashpw(password, BCrypt.gensalt()))){
           return new ResponseEntity<>(true, HttpStatus.OK);
         } 
         else return new ResponseEntity<>(false, HttpStatus.NOT_ACCEPTABLE);
@@ -89,7 +91,8 @@ public class AccountController {
   @PostMapping("/accounts")
   public ResponseEntity<Account> createAccount(@RequestBody Account account) {
     try {
-      Account _account = AccountRepository.save(new Account(account.getFirstName(), account.getLastName(), account.getUsername(), account.getPassword(), account.getRewardsPoints(), account.getRole()));
+      String hash = BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
+      Account _account = AccountRepository.save(new Account(account.getFirstName(), account.getLastName(), account.getUsername(), hash, account.getRewardsPoints(), account.getRole()));
       return new ResponseEntity<>(_account, HttpStatus.CREATED);
     } catch (Exception e) {
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -105,7 +108,7 @@ public class AccountController {
       _account.setFirstName(account.getFirstName());
       _account.setLastName(account.getLastName());
       _account.setUsername(account.getUsername());
-      _account.setPassword(account.getPassword());
+      _account.setPassword(BCrypt.hashpw(account.getPassword(), BCrypt.gensalt()));
       _account.setRewardsPoints(account.getRewardsPoints());
       _account.setRole(account.getRole());
       return new ResponseEntity<>(AccountRepository.save(_account), HttpStatus.OK);
