@@ -26,14 +26,14 @@ public class ReceiptsController {
     private ReceiptsRepository ReceiptsRepository;
 
     @GetMapping("/receipts")
-    public ResponseEntity<List<Receipts>> getAllReceipts(@RequestParam(required = false) String receipt_number) {
+    public ResponseEntity<List<Receipts>> getAllReceipts(@RequestParam(required = false) String username) {
     try {
       List<Receipts> receipts = new ArrayList<Receipts>();
 
-      if (receipt_number == null)
+      if (username == null)
         ReceiptsRepository.findAll().forEach(receipts::add);
       else
-        ReceiptsRepository.findByReceiptNumberContaining(receipt_number).forEach(receipts::add);
+        ReceiptsRepository.findByUsernameContaining(username).forEach(receipts::add);
 
       if (receipts.isEmpty()){
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

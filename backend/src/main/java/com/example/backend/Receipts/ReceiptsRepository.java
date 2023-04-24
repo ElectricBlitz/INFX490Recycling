@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ReceiptsRepository extends JpaRepository<Receipts, Long> {
-    List<Receipts> findByReceiptNumberContaining(String receipt_number);
-    Receipts findByReceiptNumber(String receipt_number);    
+    List<Receipts> findByUsernameContaining(String username);   
 }
