@@ -109,7 +109,7 @@ public class AccountController {
       _account.setFirstName(account.getFirstName());
       _account.setLastName(account.getLastName());
       _account.setUsername(account.getUsername());
-      _account.setPassword(BCrypt.hashpw(account.getPassword(), BCrypt.gensalt()));
+      _account.setPassword(account.getPassword());
       _account.setRewardsPoints(account.getRewardsPoints());
       _account.setRole(account.getRole());
       return new ResponseEntity<>(AccountRepository.save(_account), HttpStatus.OK);
