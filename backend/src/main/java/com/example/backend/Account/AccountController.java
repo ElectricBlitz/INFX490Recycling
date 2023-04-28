@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,9 +20,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AccountController {
   @Autowired
   private AccountRepository AccountRepository;
@@ -51,7 +54,7 @@ public class AccountController {
     
     try{
       if(AccountRepository.findByUsername(username) != null){
-        if(AccountRepository.findByUsername(username).getPassword().equals(password)){
+        if(BCrypt.checkpw(password, AccountRepository.findByUsername(username).getPassword())){
           return new ResponseEntity<>(true, HttpStatus.OK);
         } 
         else return new ResponseEntity<>(false, HttpStatus.NOT_ACCEPTABLE);
@@ -89,7 +92,8 @@ public class AccountController {
   @PostMapping("/accounts")
   public ResponseEntity<Account> createAccount(@RequestBody Account account) {
     try {
-      Account _account = AccountRepository.save(new Account(account.getFirstName(), account.getLastName(), account.getUsername(), account.getPassword(), account.getRewardsPoints(), account.getRole()));
+      String hash = BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
+      Account _account = AccountRepository.save(new Account(account.getFirstName(), account.getLastName(), account.getUsername(), hash, account.getRewardsPoints(), account.getRole()));
       return new ResponseEntity<>(_account, HttpStatus.CREATED);
     } catch (Exception e) {
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

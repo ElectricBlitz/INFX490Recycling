@@ -36,11 +36,11 @@ INSERT INTO location (name, address, phonenumber, latitude, longitude, types) VA
 ('Albertsons', '2863 Ambassador Caffery Pkwy, Lafayette, LA 70506', '337-406-8887', 30.1980949, -92.0738603, 'Plastic'),
 ('Albertsons', '4400 Ambassador Caffery Pkwy, Lafayete, LA 70506', '337-984-4587', 30.156803, -92.0512228, 'Plastic');
 INSERT INTO Account (firstName, lastName, username, password, rewardsPoints, role) VALUES 
-('Dylan','Bertrand','admin','password',100,'admin'),
-('Phillip','Guidry','admin2','password2',100,'admin'),
-('Ryne','Guercio','admin3','password3',100,'admin'),
-('Lauren','Coleman','admin4','password4',100,'admin'),
-('Gabe','Trahan','admin5','password5',100,'admin'),
-('Test','lastname','user1','userPassword',5,'user');
+('Dylan','Bertrand','admin','$2a$10$S8QtxRx7z6ASqY50d9Bpde9Yr2VBhnFA/r/eZYX4PH1mElVeK4Fwi',100,'admin'),
+('Phillip','Guidry','admin2','$2a$10$IIVGw2HrRR2KV1Nn7ADrH.iIBkTdSvnCEuzL8U5E.xlZZ17DIcm2q',100,'admin'),
+('Ryne','Guercio','admin3','$2a$10$V/yOO/2QkK6Tq8/IMMIhHuTqWBI3CDupLFer8Zbw46xawz745iDCC',100,'admin'),
+('Lauren','Coleman','admin4','$2a$10$xkyOgCb0LpjV5UlYtt0eluFeSukRaQcyK8qslDRHoxx.GWTvq2N72',100,'admin'),
+('Gabe','Trahan','admin5','$2a$10$E2sP6.73Xd6F1JRM4GmK7eCqLqG7SV1//GM8YtEyriFWsf/HmVumC',100,'admin'),
+('Test','lastname','user1','$2a$10$1OjtRtOwzxbt8W8Xu.FHt.2ICRU0RRn6eeI/EmekzWgVu52uX/yQO',5,'user');
 INSERT INTO Comments (username, comment, created) VALUES
 ('admin', 'This is a test', CURRENT_DATE);
