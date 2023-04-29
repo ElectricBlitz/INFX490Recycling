@@ -36,6 +36,11 @@ export class RegisterComponent {
         },
         body: JSON.stringify(newUser)})
     .then(response => {
+      this.fname = '';
+      this.lname = '';
+      this.user = '';
+      this.pass = '';
+      this.cpass = '';
       return response.json();
     })
     .then(data =>{

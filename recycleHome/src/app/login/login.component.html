@@ -1,47 +1,26 @@
 <div class="loginPage">
 
-    <br>
+    <h1>Login</h1>
 
-    <h1>Login Page</h1>
+    <form><!--form action="/action_page.php" <- this sends it to a page called action_page.php, for future reference-->
 
-    <br>
-
-    <div>
-
-        <br>
-        
-        <form novalidate>
+        <div class="field">
 
             <label for="user">Username:</label>
+            <input type="text" id="user" name="user" [(ngModel)]="user">
             
-            <br>
+        </div>
 
-            <input type="text" name="user" [(ngModel)]="user">
-            
-            <br>
-            <br>
+        <div class="field">
 
             <label for="pass">Password:</label>
+            <input type="password" name="pass" [(ngModel)]="pass">
             
-            <br>
+        </div>
 
-            <input type="text" name="pass" [(ngModel)]="pass">
-            
-            <br>
-            <br>
+        <button type="button" (click)="checkLogin()">Login</button>
 
-            <button (click)="checkLogin()" type="button" value="Login">Submit</button>
-
-        </form>
-
-        <br>
-        <br>
-
-        <p>{{ loginMsg }}</p>
-
-    </div>
-
+    </form>
+     
 </div>
-
-
 

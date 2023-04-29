@@ -1,14 +1,77 @@
-div.loginPage{
-    background-color: rgb(189, 207, 187);
+@import "../../styles.scss";
+
+div.loginPage {
+    padding: 1em;
+    background-color: $white;
     height: 100vh;
-    text-align: center;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
-h1{
-    margin: 0px;
-}
+    h1 {
+        color: $black;
+        font-size: 3em;
+        margin-bottom: 1em;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-label{
-    font-size: x-large;
-    font-family: 'Courier New', Courier, monospace;
+    form {
+        width: 25%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+
+        div.field {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 3em;
+
+            label {
+                width: 50%;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 1.5em;
+                font-weight: 600;
+            }
+
+            input {
+                width: 50%;
+                height: 60%;
+                border: none;
+                border-radius: .5em;
+                outline: solid $black 1.5px;
+
+                &:hover{
+                    outline: solid $other-green 2px;
+                    background-color: $lite-gray;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    button {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2em;
+        background-color: $blue;
+        border: none;
+        border-radius: .25em;
+        outline: solid $black .1em;
+        height: 2.5em;
+        width: 5em;
+        font-size: 1.5em;
+        font-weight: 750;
+        color: $white;
+
+        &:hover{
+            background-color: $dark-blue;
+            cursor: pointer;
+        }
+    }
 }

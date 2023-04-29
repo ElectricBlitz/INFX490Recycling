@@ -42,9 +42,11 @@ export class LoginComponent {
         fetch(window.location.origin + "/api/accounts/getByUser/" + this.user)
         .then(userResponse => userResponse.json())
         .then(userData => {
-          console.log(userData);
+          //console.log(userData);
           this.userService.setUser(userData);
-          console.log(this.userService.getUser());
+          this.user = '';
+          this.pass = '';
+          //console.log(this.userService.getUser());
         })
       } else {
         //false
