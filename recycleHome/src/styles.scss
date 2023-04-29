@@ -1,2 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~leaflet/dist/leaflet.css";
+
+
+@font-face {
+    font-family: Ysabeau;
+    src: url("./assets/fonts/Ysabeau-VariableFont_wght.ttf") format('truetype');
+    font-style: normal;
+  }
+
+// Neutrals
+$black: #111;
+$dark-gray: #333;
+$gray: #666;
+$lite-gray: #AAA;
+$white: #EEE;
+
+// Primaries
+$lite-green: #7aca82;
+$dark-green: #185505;
+$other-green: rgb(55, 120, 55);
+$blue: #4eb7c5;
+$dark-blue: #41939e;

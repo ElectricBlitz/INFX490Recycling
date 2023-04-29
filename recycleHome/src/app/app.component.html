@@ -1,13 +1,25 @@
 <!--nav-->
-<ul>
-    <li><img src="../../assets/recycling_logo.png" alt=""></li>
-    <li><a class="nav-item nav-link" routerLink="">Home</a></li>
-    <li><a class="nav-item nav-link" routerLink="login">Login</a></li>
-    <li><a class="nav-item nav-link" routerLink="register">Register</a></li>
-    <li><a class="nav-item nav-link" routerLink="rewards">Rewards</a></li>
-    <li><a class="nav-item nav-link" routerLink="quiz">Quiz</a></li>
-    <li><a class="nav-item nav-link" routerLink="map">Map</a></li>
-    <li><a class="nav-item nav-link" routerLink="admin">Admin</a></li>
-</ul>
+
+<div class="nav-bar">
+
+    <div class="left">
+
+        <img class="logo" src="../../assets/recycling_logo.png" alt="">
+
+    </div>
+
+    <div class="right">
+
+        <button class="nav-button" routerLink="">Home</button>
+        <button class="nav-button" routerLink="rewards">Rewards</button>
+        <button class="nav-button" routerLink="quiz">Quiz</button>
+        <button class="nav-button" routerLink="map">Map</button>
+        <button class="nav-button" routerLink="register">Register</button>
+        <button class="nav-button" routerLink="login">Login</button>
+
+    </div>
+
+</div>
+
 <!--page-->
 <router-outlet></router-outlet>

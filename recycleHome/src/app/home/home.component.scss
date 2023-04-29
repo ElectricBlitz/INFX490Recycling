@@ -1,83 +1,194 @@
+@import "../../styles.scss";
+
 div.homePage{
-    background-color: rgb(189, 207, 187);
-}
+    background-color: $white;
 
-img{
-    
-}
+    div.top{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        padding: 1em;
 
-img.logo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 400px;
-    width: 400px;
-}
+        div.top-left, div.top-middle, div.top-right{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
 
-img.graph{
-    margin-left: 5%;
-    margin-right: 5%;
-    height: 400px;
-    width: 600px;
-}
+            hr{
+                width: 90%;
+            }
 
-img.info{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 500px;
-    width: 600px;
-}
+            p{
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 1.25em;
+                text-align: justify;
+                margin: 30px;
+                margin-bottom: 0;
+            }
 
-h1{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-    font-size: 80px;
-    margin: 0px;
-}
+            div.graphs{
+                display: flex;
+                flex-direction: column;
 
-h2.sub-title{
-    font-size: 60px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-}
-
-h3.sectionTitle{
-    font-size: 45px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-}
-
-h4.subHeader{
-    font-size: 35px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-}
-
-p.text{
-    font-size: 30px;
-    size: 2em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 30px;
-    text-align: center;
-
-    a.inline-link {
-        color: blue;
-        text-decoration: underline;
-        display: inline;
-        
-        &:hover {
-          text-decoration: none;
+                img.graph{
+                    width: 400px;
+                    height: 200px;
+                    margin-right: auto;
+                    margin-left: auto;
+                    margin-top: 1em;
+                }
+            }
         }
+
+        div.top-left{
+            p{
+                font-size: 1.5em;
+            }
+        }
+
+        div.top-middle{
+            border-right: solid 1px $black;
+            border-left: solid 1px $black;
+
+            h1.title{
+                color: $black;
+                font-size: 4em;
+                margin-bottom: 0;
+            }
+    
+            img.logo{
+                width: 20em;
+                height: 20em;
+                margin-left: auto;
+                margin-right:auto;
+            }
+    
+            h2.slogan{
+                color: $black;
+                font-size: 3em;
+                margin-top: 0;
+            }
+
+            h1.title, h2.slogan{
+                font-family: Ysabeau;
+                text-align: center;
+            }
+        }
+    }
+
+    hr{
+        width: 90%;
+    }
+
+    div.middle{
+        padding: 2em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        div.vr{
+            border-right: solid $black .5px;
+        }
+
+        div.middle-left, div.middle-right{
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+
+            hr{
+                width: 92%;
+            }
+
+            p{
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 1.25em;
+                text-align: justify;
+                margin: 30px;
+                margin-bottom: 0;
+            }
+
+            img.info{
+                width: 380px;
+            }
+
+            img{
+                width: 400px;
+                margin-right: auto;
+                margin-left: auto;
+                margin-top: 1em;
+            }
+        }
+    }
+
+    div.bottom{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 2em;
+
+        div.vr{
+            border-right: solid $black .5px;
+        }
+
+        div.bottom-left, div.bottom-right{
+            width: 45%;
+
+            hr{
+                width: 92%;
+            }
+
+            p{
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 1.25em;
+                text-align: justify;
+                margin: 30px;
+                margin-bottom: 0;
+            }
+        }
+
+        div.lists{
+            display: flex;
+            flex-direction: row;
+
+            h4.list-title{
+                font-family: Ysabeau;
+                font-size: 1.5em;
+                margin-left: 30px;
+                margin-right: 30px;
+                margin-bottom: 0;
+            }
+
+            ul.electronics{
+                columns: 2;
+            }
+        }
+
+        li{
+            font-size: 1em;
+            size: 2em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    }
+
+    h3.section-title{
+        font-family: Ysabeau;
+        color: $dark-green;
+        font-size: 2em;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 0;
+    }
+
+    div.rewards-program{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
-li{
-    font-size: 25px;
-    size: 2em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 30px;
-}
+// COMMENTS SECTION --------------------------------------------------------------------------
 
 
 p.formHeader{
@@ -117,4 +228,3 @@ p.comments{
     text-align: center;
     margin: 0px;
 }
-

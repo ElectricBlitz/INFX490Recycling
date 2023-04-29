@@ -1,11 +1,19 @@
+@import "../../styles.scss";
+
 .map-container {
   height: 600px;
+  border: solid 1px $lite-gray;
 }
 
 div.mapPage{
-  background-color: rgb(189, 207, 187);
+  background-color: $white;
+  padding: 2em;
+  height: 100vw;
 }
 
 h1{
-  margin: 0px;
+  font-family: Ysabeau;
+  color: $black;
+  font-size: 3em;
+  margin-top: 0;
 }
