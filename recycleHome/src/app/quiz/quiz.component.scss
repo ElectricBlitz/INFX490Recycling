@@ -1,7 +1,9 @@
+@import "../../styles.scss";
+
 div.quizPage{
-    background-color: rgb(189, 207, 187);
+    background-color: $white;
     height: 100vh;
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 h1{
@@ -13,42 +15,73 @@ div.questionDisplay{
 }
 
 div.answerList{
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    button{
+        margin: 30px;
+        color: black;
+        background-color: white;
+        text-align: center;
+        padding: 10px 10px;
+        text-decoration: none;
+        font-size: x-large;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border: none;
+        border-radius: .25em;
+        outline: solid $black .1em;
+
+    }
+
+    button.unknown{
+        background-color: white;
+
+        &:hover{
+            background-color: rgb(204, 204, 204);
+            cursor: pointer;
+        }
+    }
+    
+    button.incorrect{
+        background-color: rgb(211, 0, 0);
+    }
+    
+    button.correct{
+        background-color: rgb(0, 178, 18);
+    }
 }
 
-button{
-    margin: 30px;
-    color: rgb(255, 255, 255);
-    background-color: black;
-    text-align: center;
-    padding: 10px 10px;
-    text-decoration: none;
-    font-size: x-large;
-    font-family: Tahoma, 'Segoe UI',  Geneva, Verdana, sans-serif;
-}
+div.continue{
 
-button.unknown{
-    background-color: rgb(0, 0, 0);
-}
+    button{
+        margin: 0;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2em;
+        background-color: $blue;
+        border: none;
+        border-radius: .25em;
+        outline: solid $black .1em;
+        height: 2.5em;
+        width: 5em;
+        font-size: 1.5em;
+        font-weight: 750;
+        color: $white;
 
-button.incorrect{
-    background-color: rgb(113, 6, 6);
-}
+        &:hover{
+            background-color: $dark-blue;
+            cursor: pointer;
+        }
+    }
 
-button.correct{
-    background-color: rgb(6, 92, 15);
-}
-
-button.continueButton{
-  margin: 0;
-  position: absolute;
-  top: 75%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
