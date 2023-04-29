@@ -186,45 +186,86 @@ div.homePage{
         margin-left: auto;
         margin-right: auto;
     }
+
+    // COMMENTS SECTION --------------------------------------------------------------------------
+    
+    div.commentForm{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+
+        p.formHeader{
+            font-size: 50px;
+            font-family: Ysabeau;
+        }
+
+        input.formInput{
+            height: 50px;
+            width: 800px;
+            font-size: 30px;
+        }
+
+        button.commentSubmit{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2em;
+            background-color: $blue;
+            border: none;
+            border-radius: .25em;
+            outline: solid $black .1em;
+            height: 50px;
+            width: 100px;
+            font-size: 1.5em;
+            font-weight: 750;
+            color: $white;
+
+            &:hover{
+                background-color: $dark-blue;
+                cursor: pointer;
+            }
+        }
+    }
+    
+
+    div.commentsDisplay{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p.commentHeader{
+            text-align: center;
+            font-size: 50px;
+            font-family: Ysabeau;
+        }
+            
+        div.commentList{
+            div.commentTop{
+                display: flex;
+                font-family: Ysabeau;
+                font-size: 30px;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                div.commentName{
+                    margin-right: 25px;
+                }
+            }
+    
+            div.commentBottom{
+                font-family: Ysabeau;
+                font-size: 40px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+    }
 }
 
-// COMMENTS SECTION --------------------------------------------------------------------------
 
 
-p.formHeader{
-    font-size: 30px;
-}
 
-div.commentForm{
-    text-align: center;
-}
-
-input.formInput{
-    height: 50px;
-    width: 800px;
-    font-size: 30px;
-}
-
-button.commentSubmit{
-    height: 50px;
-    width: 100px;
-    font-size: 22px;
-    border-radius: 25px;
-    text-align: center;
-}
-
-p.commentHeader{
-    text-align: center;
-    font-size: 30px;
-    font: bold;
-}
-
-div.commentList{
-    text-align: center;
-}
-
-p.comments{
-    font-size: 25px;
-    text-align: center;
-    margin: 0px;
-}

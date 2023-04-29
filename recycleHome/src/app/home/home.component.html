@@ -215,20 +215,29 @@
         <p class="formHeader">Leave a comment</p>
         <form id="comment-form">
     
-            <!-- <input class="formInput" type="text" name="name" [(ngModel)]="name">Name <br> <br> -->
-    
             <input class="formInput" type="text" name="body" [(ngModel)]="body"> <br> <br>
     
             <button class="commentSubmit" type="button" (click)="readAndComment()">Submit</button>
         </form>
     </div>
     
-    <p class="commentHeader">Comments</p>
-    <div class="commentList" *ngFor="let comment of comments">
-        <p class="comments">
-            {{comment.name}}        {{ comment.time }}<br>
-            {{comment.body}}
-        </p>
-        <br>
-    </div>    
+
+    <div class="commentsDisplay">
+        <p class="commentHeader">Comments</p>
+        <div class="commentList" *ngFor="let comment of comments">
+            <div class="comment">
+                <div class="commentTop">
+                    <div class="commentName">
+                        {{comment.name}} 
+                    </div>
+                    <div class="commentDate">
+                        {{ comment.time | date:'short' }}
+                    </div>
+                </div>
+                <div class="commentBottom">
+                    {{comment.body}}
+                </div>
+            </div>
+        </div> 
+    </div> 
 </div>
