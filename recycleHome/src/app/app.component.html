@@ -14,8 +14,16 @@
         <button class="nav-button" routerLink="rewards">Rewards</button>
         <button class="nav-button" routerLink="quiz">Quiz</button>
         <button class="nav-button" routerLink="map">Map</button>
-        <button class="nav-button" routerLink="register">Register</button>
-        <button class="nav-button" routerLink="login">Login</button>
+        <button class="nav-button" routerLink="register" *ngIf="!(getLoggedIn())">Register</button>
+        <button class="nav-button" routerLink="login" *ngIf="!(getLoggedIn())">Login</button>
+
+    </div>
+
+    <div class="user">
+
+        <p *ngIf="getLoggedIn()">
+            {{ username }} | Points: {{ points }} 
+        </p>
 
     </div>
 
