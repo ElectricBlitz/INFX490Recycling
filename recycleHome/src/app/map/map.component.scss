@@ -1,11 +1,39 @@
+@import "../../styles.scss";
+
 .map-container {
   height: 600px;
+  border: solid 1px $lite-gray;
 }
 
 div.mapPage{
-  background-color: rgb(189, 207, 187);
+  background-color: $white;
+  padding: 2em;
+  height: 100vw;
 }
 
 h1{
-  margin: 0px;
+  font-family: Ysabeau;
+  color: $black;
+  font-size: 3em;
+  margin-top: 0;
+}
+
+div.filterOptions{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  input.option{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+  }
+
+  label.label{
+    font-family: Ysabeau;
+    font-size: 40px;
+    margin-right: 30px;
+  }
 }

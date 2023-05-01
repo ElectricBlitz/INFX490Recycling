@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Comment } from '../classes/comment';
 import { UserService } from '../services/user.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',

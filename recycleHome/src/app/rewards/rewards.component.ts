@@ -21,43 +21,53 @@ export class RewardsComponent implements OnInit {
       this.userPoints = this.userService.getPoints();
     }
 
-    
+    rewardsList:Reward[] = [new Reward(0,100,"LRI Refrigerator Magnet","A magnet with our logo"),
+    new Reward(1,150,"LRI Recycled Notebook","A notebook made with recycled materials"),
+    new Reward(2,200,"LRI Eco Bag","A bag with our logo made of recycled material"),
+    new Reward(3,300,"Breaux's Mart 5% off coupon","5% off a purchase at Breaux's Mart")];
 
-    rewardsList:Reward[] = [new Reward(0,2,"Thank You","Nothing, but thank you for recycling"),new Reward(1,30,"Coasters","Coasters with our logo, made with recycled materials.")];
+    claimMsg:string = '';
 
-    claimReward(cost:number){
+    claimReward(cost:number,item:string){
       if(this.userPoints >= cost){
+        this.claimMsg = "You have successfully claimed: " + item;
         this.userPoints = this.userPoints - cost;
         this.userService.setPoints(this.userPoints);
         this.userService.updateData();
       }
     }
 
-    code: number = 0;
+    code: string = "";
+
+    codeClaim: string = "";
 
     addPoints(){
       if(this.userService.getUsername() != ""){
-        if(this.code == 123456){
+        if(this.code == "123456"){
+          this.codeClaim = "Claim successful";
           this.userPoints = this.userPoints + 50;
           this.userService.setPoints(this.userPoints);
           this.userService.updateData();
         }
-        else if(this.code == 123123){
+        else if(this.code == "123123"){
+          this.codeClaim = "Claim successful";
           this.userPoints = this.userPoints + 100;
           this.userService.setPoints(this.userPoints);
           this.userService.updateData();
         }
-        else if(this.code == 456456){
+        else if(this.code == "456456"){
+          this.codeClaim = "Claim successful";
           this.userPoints = this.userPoints + 300;
           this.userService.setPoints(this.userPoints);
           this.userService.updateData();
         }
         else{
-  
+          this.codeClaim = "Invalid Code";
         }
       }
       else{
-
+        this.codeClaim = "You must be logged in to claim a code";
       }
+      this.code = '';
     }
 }

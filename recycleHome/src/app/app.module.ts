@@ -10,7 +10,6 @@ import { RegisterComponent } from './register/register.component';
 import { RewardsComponent } from './rewards/rewards.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { MapComponent } from './map/map.component';
-import { AdminComponent } from './admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -22,8 +21,7 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     RewardsComponent,
     QuizComponent,
-    MapComponent,
-    AdminComponent
+    MapComponent
   ],
   imports: [
     BrowserModule,

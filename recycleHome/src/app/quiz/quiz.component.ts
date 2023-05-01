@@ -17,7 +17,7 @@ export class QuizComponent implements OnInit {
   new Question(1,"Which item can be collected by municipal recycling?","any plastics","soft plastics","clean and dry hard plastics","all of the above","clean and dry hard plastics"),
   new Question(2,"What item should NOT go into your recycling bin?","food","batteries","diapers","all of the above","all of the above"),
   new Question(3,"Which item can be collected by municipal recycling?","plastic coat hangers","plastic straws","rigid plastics with a screw top/neck","plastic flower pots","rigid plastics with a screw top/neck"),
-  new Question(4,"Which metal item can be collected by minicipal recycling?","propane tanks","aerosol cans","drink cans","hazardous waste containers","drink cans"),
+  new Question(4,"Which metal item can be collected by municipal recycling?","propane tanks","aerosol cans","drink cans","hazardous waste containers","drink cans"),
   new Question(5,"Which item can NOT be recycled by municipal recycling?","toys","flattened cardboard","paper","metal cans","toys"),
   new Question(6,"The decomposition time of monofilament fishing line is roughly:","50 years","200 years","600 years","1000 years","600 years"),
   new Question(7,"The decomposition time of styrofoam is roughly:","10 years","100 years","1000 years","styrofoam does not biodegrade","styrofoam does not biodegrade"),

@@ -1,22 +1,35 @@
 <div class="rewardsPage">
-    <h1>Rewards Page</h1>
+    <p class="text">
+        The Lafayette Recycling Initiative is a collaboration with local sponsors that rewards residents 
+        for engaging in the collection program. Now you can earn points for recycling that can be turned in for rewards.
+    </p>
 
-    <div class="userPoints">
-    {{ userPoints }}
-    </div>
-    <br>
-    <div *ngFor="let reward of rewardsList">
-        <p class="rewards">
-            {{reward.cost}} &nbsp; &nbsp; &nbsp;
-            {{reward.item}} &nbsp; &nbsp;
-            {{reward.description}} &nbsp; &nbsp;
-            <button type="button" (click)="claimReward(reward.cost)">
-                Claim this reward
-            </button>
-        </p>
+    <p class="rewardTitle">
+        Rewards
+    </p>
+
+    <p class="rewardClaim">
+        {{ claimMsg }}
+    </p>
+
+    <div class="rewardContainer" *ngFor="let reward of rewardsList">
+        <div class="reward">
+            <div class="cost">{{reward.cost}}</div>
+            <div class="name">{{reward.item}}</div>
+            <div class="description">{{reward.description}}</div>
+            <button class="claimReward" (click)="claimReward(reward.cost,reward.item)">Claim Reward</button>
+        </div>
     </div> 
 
     <div class="codeForm">
+        <p class="codeTitle">
+            Input Your Receipt Code
+        </p>
+
+        <p class="codeClaim">
+            {{ codeClaim }}
+        </p>
+
         <form>
             <input class="codeInput" type="text" name="code" [(ngModel)]="code"> <br> <br>
         
@@ -24,4 +37,3 @@
         </form>
     </div>
 </div>
- 
