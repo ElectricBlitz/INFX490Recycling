@@ -44,8 +44,8 @@ export class LoginComponent {
         .then(userData => {
           //console.log(userData);
           this.userService.setUser(userData);
-          this.user = '';
-          this.pass = '';
+          // this.user = '';
+          // this.pass = '';
           //console.log(this.userService.getUser());
         })
       } else {
